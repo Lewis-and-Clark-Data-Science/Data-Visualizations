@@ -1,0 +1,19 @@
+project:
+  type: website
+  output-dir: docs
+
+
+website:
+  title: "Data Visualization Tutorials"
+  sidebar:
+    style: "docked"
+    contents:
+      - href: index.qmd
+        text: Home
+      - href: tutorial1.qmd
+     
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
