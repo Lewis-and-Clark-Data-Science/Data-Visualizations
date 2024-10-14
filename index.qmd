@@ -1,3 +1,123 @@
 ---
-title: "Index"
+title: "Home"
+format: html
+engine: knitr
+filters:
+  - webr
 ---
+
+```{r}
+#| label: load-packages
+#| include: false
+
+library(tidyverse)
+
+install.packages("gt")
+library(gt)
+
+```
+
+## What is ggplot2?
+
+The grammar of graphics package in R called ggplot2 is used to generate data visualizations. It breaks down the components of a plot, so you can adjust its aesthetics (size or intensity of plot points, colors, spatial arrangement of the elements) for a variety of graph types. Here, we will use ggplot2 to code:
+
+-   Histograms
+
+-   Box plots
+
+-   Bar charts
+
+-   Scatterplots
+
+## Installing ggplot2
+
+To install ggplot into your environment, run the code
+
+``` r
+install.packages("ggplot2")
+```
+
+To load ggplot into your environment, run
+
+``` r
+library(ggplot2)
+```
+
+## Elements of a graph
+
+There are key features in all graphs, including:
+
+| A title: A good title should be the conclusion of your data analysis, or the relationship of your X and Y axes.
+
+| Axes: The X and Y axis should have their respective types of data. Each graph tutorial will guide you on what type of data goes on which axis.
+
+| Colors: Using colors can help guide your audience on what trend, if any, you want to emphasize. It is important to note that they should be used sparingly. While they may look pretty, having too many colors can be distracting of your data’s big picture.
+
+| Legends: To prevent the graph from being too busy, consider using a legend to explain your graph’s features.
+
+## What makes a graph good?
+
+Anyone should be able to look at a graph and understand your data without the context of your research. Take a step back from your code and ask yourself:
+
+*What is this graph telling me? What is the relationship between the X and Y variables?*
+
+While you may not be able to draw conclusions from your graphs, they should give you the big picture of your data.
+
+## Types of data
+
+Identifying the types of data you have will help you identify the type of graph you’ll need. There are two types of data with two subcategories for each: 
+
+Categorical: data that are arranged in groups
+
+|               Nominal: there is no priority or ranking in groups 
+
+|               Eg. yes or no, favorite colors
+
+|               Ordinal: There is structure within the groups
+
+|               Eg small, medium, and large or cold, warm, and hot
+
+Numerical: all things numbers
+
+| Continuous: Decimal/fractional integers
+
+| Discrete: Whole integers
+
+## Data in this tutorial
+
+We will be using three different data sets to hone in on our data science skills.
+
+-   Palmer penguins: This data set gives insight on the bill length, bill depth, flipper length, body mass, sex, and year of data collection of various Antarctic penguins. 
+
+```{r}
+data("penguins") %>%
+  gt() %>%
+  tab_header= ("What a **nice title**")
+  subtitle = ("Pretty *cool subtitle* too, `isn't it?`"))
+```
+
+-   Chick weight: This data set tracks the weight of chicks in grams on different diets over 21 days. The diet types are as follows:
+
+    Diet 1: Normal feed with a 10% protein replacement
+
+    Diet 2: Normal feed with a 20% protein replacement
+
+    Diet 3: Normal feed with a 40% protein replacement
+
+    Diet 4: Normal feed, controlled group\
+
+```{r}
+data(ChickWeight)
+chicks_tbl <- 
+  tibble(
+    name = names(penguins),
+    size = penguins)
+```
+
+-   Presidents: This data set tracks the quarterly approval ratings of US presidents from 1945-1975.
+
+```{r}
+data("presidents")
+```
+
+Take a look at each data set by running their respective code chunks. Do you notice any trends? What variables interest you?
