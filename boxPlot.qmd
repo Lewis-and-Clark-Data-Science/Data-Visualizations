@@ -1,0 +1,54 @@
+---
+title: "Box Plots"
+format: html
+engine: knitr
+filters:
+  - webr
+---
+
+```{r}
+#| label: loading tidyverse
+#| include: false
+
+library(tidyverse)
+library(palmerpenguins)
+```
+
+## What is a box plot
+
+A box plot is a graph that shows a ***numeric*** summary (y-axis) of either a ***categorical or numerical*** variable (x-axis). It gives information on the spread of data.
+
+The "**box**," as shown below, represents three values: the 25th percentile, median (50th percentile), and the 75th percentile. Each horizontal bar corresponds to a number where that percentage of the data falls below. In other words, the horizontal bar closest to the x-axis represents where 25% of the data falls below, the bar in between the box is the median, or where 50% of the data fall below, and the furthest horizontal bar represents where 75% of the data falls below.
+
+The vertical lines that emerge from the box are called **whiskers**. The whisker closest to the x-axis represents the minimum calculated by subtracting three times the interquartile range (75th percentile-25th percentile) from the value for the 25th percentile. The furthest whisker from the x-axis represents the maximum calculated by subtracting three times the interquartile range from the 75th percentile.
+
+Data points that exist outside of these calculated minimum and maximum values exist as points separated from the plot, called outliers.
+
+Here is the framework of a box plot.
+
+```{r}
+#| label: generating frame plot
+#| warning: false
+#| echo: false
+data <- rnorm(100, mean = 50, sd = 10)
+
+ggplot(data.frame(Value = data), aes(y = Value)) +
+  geom_boxplot() +
+  labs(title = "Sample Box and Whisker Plot", y = "Numeric continous", x = " Categorical ordinal/nominal")
+```
+
+Using the penguin dataset, we can compare the flipper lengths (variable: flipper_length_mm) of the different species (variable: species) of penguins.
+
+```{r}
+ggplot(data=penguins, mapping = aes(x=species, y=flipper_length_mm))+
+  geom_boxplot()+
+  labs(x="Species of Antarctic penguin", y="Flipper length (mm)", title = "Species of Antarctic penguins have different flipper lengths")
+```
+
+For the Adelie penguins, there are outliers on either side of the whiskers. These are values fall short/exceed the whisker value calculation.
+
+Now, compare the flipper lengths (variable: flipper_length_mm) of the different sexes (variable: sex) of penguins
+
+```{webr-r}
+
+```

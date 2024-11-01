@@ -1,11 +1,7 @@
 ---
-title: "Tutorial 1"
+title: "Scatter Plots"
 format: html
 engine: knitr
 filters:
   - webr
 ---
-
-```{webr-r}
-1+2
-```

@@ -1,12 +1,32 @@
 [
   {
-    "objectID": "tutorial1.html",
-    "href": "tutorial1.html",
-    "title": "Tutorial 1",
+    "objectID": "histogram.html",
+    "href": "histogram.html",
+    "title": "Histograms",
     "section": "",
-    "text": "Please enable JavaScript to experience the dynamic code cell content on this page.",
+    "text": "A histogram is a graph that compares the frequency (y-axis) of any categorical or numeric variable (x-axis). In other words, it measures how often a value from the x-axis appears in a data set.\nHere is the framework of a histogram:\n\n\n\n\n\n\n\n\n\nIn the penguin dataset, we can use a histogram to determine how often each bill depth (variable: bill_depth_mm) value appears in the dataset.\nHere, there is a deviation from the ggplot framework in the home page. “bins” is used to tell R how many bars to create in your histogram. You can change this number as needed.\n\nggplot(data=penguins, mapping=aes(x=bill_depth_mm, na.rm=TRUE))+\n  geom_histogram(bins=20)+\n  labs(title=\"Distribution of Antarctic Penguin Bill Depth\", x=\"Bill depth (mm)\", y=\"Frequency\")\n\nWarning: Removed 2 rows containing non-finite outside the scale range\n(`stat_bin()`).\n\n\n\n\n\n\n\n\n\nNow, create a histogram to see the distribution of chick weights (variable “weight”) using the chickWeight dataset.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
     "crumbs": [
-      "Tutorial 1"
+      "Histograms"
+    ]
+  },
+  {
+    "objectID": "histogram.html#what-is-a-histogram",
+    "href": "histogram.html#what-is-a-histogram",
+    "title": "Histograms",
+    "section": "",
+    "text": "A histogram is a graph that compares the frequency (y-axis) of any categorical or numeric variable (x-axis). In other words, it measures how often a value from the x-axis appears in a data set.\nHere is the framework of a histogram:\n\n\n\n\n\n\n\n\n\nIn the penguin dataset, we can use a histogram to determine how often each bill depth (variable: bill_depth_mm) value appears in the dataset.\nHere, there is a deviation from the ggplot framework in the home page. “bins” is used to tell R how many bars to create in your histogram. You can change this number as needed.\n\nggplot(data=penguins, mapping=aes(x=bill_depth_mm, na.rm=TRUE))+\n  geom_histogram(bins=20)+\n  labs(title=\"Distribution of Antarctic Penguin Bill Depth\", x=\"Bill depth (mm)\", y=\"Frequency\")\n\nWarning: Removed 2 rows containing non-finite outside the scale range\n(`stat_bin()`).\n\n\n\n\n\n\n\n\n\nNow, create a histogram to see the distribution of chick weights (variable “weight”) using the chickWeight dataset.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Histograms"
+    ]
+  },
+  {
+    "objectID": "boxPlot.html",
+    "href": "boxPlot.html",
+    "title": "Box Plots",
+    "section": "",
+    "text": "A box plot is a graph that shows a numeric summary (y-axis) of either a categorical or numerical variable (x-axis). It gives information on the range of the data with either end of the plot.\nThe “box,” as shown below, represents three values: the 25th percentile, median (50th percentile), and the 75th percentile. Each horizontal bar corresponds to a number where that percentage of the data falls below. In other words, the horizontal bar closest to the x-axis represents where 25% of the data falls below, the bar in between the box is the median, or where 50% of the data fall below, and the furthest horizontal bar represents where 75% of the data falls below.\nThe vertical lines that emerge from the box are called whiskers. The whisker closest to the x-axis represents the minimum calculated by subtracting three times the interquartile range (75th percentile-25th percentile) from the value for the 25th percentile. The furthest whisker from the x-axis represents the maximum calculated by subtracting three times the interquartile range from the 75th percentile.\nHere is the framework of a box plot.\n\n\n\n\n\n\n\n\n\nUsing the penguin dataset, we can compare the flipper lengths (variable: flipper_length_mm) of the different species (variable: species) of penguins.\n\nggplot(data=penguins, mapping = aes(x=species, y=flipper_length_mm))+\n  geom_boxplot()+\n  labs(x=\"Species of Antarctic penguin\", y=\"Flipper length (mm)\", title = \"Species of Antarctic penguins have different flipper lengths\")\n\nWarning: Removed 2 rows containing non-finite outside the scale range\n(`stat_boxplot()`).\n\n\n\n\n\n\n\n\n\nFor the Adelie penguins, there are outliers on either side of the whiskers. These are values fall short/exceed the whisker value calculation.\nNow, compare the flipper lengths (variable: flipper_length_mm) of the different sexes (variable: sex) of penguins\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Box Plots"
     ]
   },
   {
@@ -14,7 +34,7 @@
     "href": "index.html",
     "title": "Home",
     "section": "",
-    "text": "The grammar of graphics package in R called ggplot2 is used to generate data visualizations. It breaks down the components of a plot, so you can adjust its aesthetics (size or intensity of plot points, colors, spatial arrangement of the elements) for a variety of graph types. Here, we will use ggplot2 to code:\n\nHistograms\nBox plots\nBar charts\nScatterplots",
+    "text": "library(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(palmerpenguins)\npenguins&lt;- palmerpenguins::penguins",
     "crumbs": [
       "Home"
     ]
@@ -23,8 +43,8 @@
     "objectID": "index.html#what-is-ggplot2",
     "href": "index.html#what-is-ggplot2",
     "title": "Home",
-    "section": "",
-    "text": "The grammar of graphics package in R called ggplot2 is used to generate data visualizations. It breaks down the components of a plot, so you can adjust its aesthetics (size or intensity of plot points, colors, spatial arrangement of the elements) for a variety of graph types. Here, we will use ggplot2 to code:\n\nHistograms\nBox plots\nBar charts\nScatterplots",
+    "section": "1 What is ggplot2?",
+    "text": "1 What is ggplot2?\nThe grammar of graphics package in R called ggplot2 is used to generate data visualizations. It breaks down the components of a plot, so you can adjust its aesthetics (size or intensity of plot points, colors, spatial arrangement of the elements) for a variety of graph types. Here, we will use ggplot2 to code:\n\nHistograms\nBox plots\nBar charts\nScatterplots",
     "crumbs": [
       "Home"
     ]
@@ -33,8 +53,8 @@
     "objectID": "index.html#installing-ggplot2",
     "href": "index.html#installing-ggplot2",
     "title": "Home",
-    "section": "Installing ggplot2",
-    "text": "Installing ggplot2\nTo install ggplot into your environment, run the code\ninstall.packages(\"ggplot2\")\nTo load ggplot into your environment, run\nlibrary(ggplot2)",
+    "section": "2 Installing ggplot2",
+    "text": "2 Installing ggplot2\nTo install ggplot into your environment, run the code\ninstall.packages(\"ggplot2\")\nTo load ggplot into your environment, run\nlibrary(ggplot2)\nIn this tutorial, don’t worry about installing tidyverse. However, you must install it on any of your personal projects.",
     "crumbs": [
       "Home"
     ]
@@ -43,8 +63,8 @@
     "objectID": "index.html#elements-of-a-graph",
     "href": "index.html#elements-of-a-graph",
     "title": "Home",
-    "section": "Elements of a graph",
-    "text": "Elements of a graph\nThere are key features in all graphs, including:\nA title: A good title should be the conclusion of your data analysis, or the relationship of your X and Y axes.\nAxes: The X and Y axis should have their respective types of data. Each graph tutorial will guide you on what type of data goes on which axis.\nColors: Using colors can help guide your audience on what trend, if any, you want to emphasize. It is important to note that they should be used sparingly. While they may look pretty, having too many colors can be distracting of your data’s big picture.\nLegends: To prevent the graph from being too busy, consider using a legend to explain your graph’s features.",
+    "section": "3 Elements of a graph",
+    "text": "3 Elements of a graph\nThere are key features in all graphs, including:\nA title: A good title should be the conclusion of your data analysis, or the relationship of your X and Y axes.\nAxes: The X and Y axis should have their respective types of data. Each graph tutorial will guide you on what type of data goes on which axis.\nColors: Using colors can help guide your audience on what trend, if any, you want to emphasize. It is important to note that they should be used sparingly. While they may look pretty, having too many colors can be distracting of your data’s big picture.\nLegends: To prevent the graph from being too busy, consider using a legend to explain your graph’s features.",
     "crumbs": [
       "Home"
     ]
@@ -53,8 +73,8 @@
     "objectID": "index.html#what-makes-a-graph-good",
     "href": "index.html#what-makes-a-graph-good",
     "title": "Home",
-    "section": "What makes a graph good?",
-    "text": "What makes a graph good?\nAnyone should be able to look at a graph and understand your data without the context of your research. Take a step back from your code and ask yourself:\nWhat is this graph telling me? What is the relationship between the X and Y variables?\nWhile you may not be able to draw conclusions from your graphs, they should give you the big picture of your data.",
+    "section": "4 What makes a graph good?",
+    "text": "4 What makes a graph good?\nAnyone should be able to look at a graph and understand your data without the context of your research. Take a step back from your code and ask yourself:\nWhat is this graph telling me? What is the relationship between the X and Y variables?\nThe key to making a graph comprehensible is to make its story as clear as possible. Use the elements of your graph as tools to convey this story.",
     "crumbs": [
       "Home"
     ]
@@ -63,8 +83,8 @@
     "objectID": "index.html#types-of-data",
     "href": "index.html#types-of-data",
     "title": "Home",
-    "section": "Types of data",
-    "text": "Types of data\nIdentifying the types of data you have will help you identify the type of graph you’ll need. There are two types of data with two subcategories for each: \nCategorical: data that are arranged in groups\n              Nominal: there is no priority or ranking in groups \n              Eg. yes or no, favorite colors\n              Ordinal: There is structure within the groups\n              Eg small, medium, and large or cold, warm, and hot\nNumerical: all things numbers\nContinuous: Decimal/fractional integers\nDiscrete: Whole integers",
+    "section": "5 Types of data",
+    "text": "5 Types of data\nIdentifying the types of data you have will help you identify the type of graph you’ll need. There are two types of data with two subcategories for each: \nCategorical: data that are arranged in groups\n              Nominal: there is no priority or ranking in groups \n              Eg. yes or no, favorite colors\n              Ordinal: There is structure within the groups\n              Eg small, medium, and large or cold, warm, and hot\nNumerical: all things numbers\nContinuous: Decimal/fractional integers\nDiscrete: Whole integers",
     "crumbs": [
       "Home"
     ]
@@ -73,8 +93,18 @@
     "objectID": "index.html#data-in-this-tutorial",
     "href": "index.html#data-in-this-tutorial",
     "title": "Home",
-    "section": "Data in this tutorial",
-    "text": "Data in this tutorial\nWe will be using three different data sets to hone in on our data science skills.\n\nPalmer penguins: This data set gives insight on the bill length, bill depth, flipper length, body mass, sex, and year of data collection of various Antarctic penguins. \n\n\ndata(\"penguins\")\n\n\nChick weight: This data set tracks the weight of chicks in grams on different diets over 21 days. The diet types are as follows:\nDiet 1: Normal feed with a 10% protein replacement\nDiet 2: Normal feed with a 20% protein replacement\nDiet 3: Normal feed with a 40% protein replacement\nDiet 4: Normal feed, controlled group\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nPresidents: This data set tracks the quarterly approval ratings of US presidents from 1945-1975.\n\n\ndata(\"presidents\")\n\nTake a look at each data set by running their respective code chunks. Do you notice any trends? What variables interest you?",
+    "section": "6 Data in this tutorial",
+    "text": "6 Data in this tutorial\nWe will be using three different data sets to hone in on our data science skills.\n\nPalmer penguins: This data set gives insight on the bill length, bill depth, flipper length, body mass, sex, and year of data collection of various Antarctic penguins. \n\n\n#penguin data\n\n\n#selecting all columns\n\n\n#using gt\n\n\nChick weight: This data set tracks the weight of chicks in grams on different diets over 21 days. The diet types are as follows:\nDiet 1: Normal feed with a 10% protein replacement\nDiet 2: Normal feed with a 20% protein replacement\nDiet 3: Normal feed with a 40% protein replacement\nDiet 4: Normal feed, controlled group\n\n\n\n#selecting chick weight columns\n\n\n#gt chick weights\n\n\nPresidents: This data set tracks the quarterly approval ratings of US presidents from 1945-1975.\n\n\n#select president columns\n\n\n#gt presidents\n\nTake a look at each data set by running their respective code chunks. Do you notice any trends? What variables interest you?",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#ggplot-code-framework",
+    "href": "index.html#ggplot-code-framework",
+    "title": "Home",
+    "section": "7 ggplot Code Framework",
+    "text": "7 ggplot Code Framework\nIn order to use ggplot, there here is a skeletal framework:\n#| echo: fenced #| results: hide ggplot(data=dataset, mapping=aes(x=xVariable, y=yVariable))+ geom_typeOfPlot()+ labs(title=“Your title”, x=“Name of X variable”, y=“Your Y variable”)\nLet’s break down each part of this graph:\n\nFirst, are calling on the ggplot function.\nThen, we are asking R to look through our dataset.\nThe mapping=aes is used to change elements in your graph that are in the “Tips and Tricks” section of this site.\nAfter that, we are explicitly telling R what variables we want on each axis.\nNext, we are specifying which type of graph we want R to make.\nFinally, we call on the labs function to rename our axes with our variable names, making sure to include units when necessary.\n\nNow, we are ready to start coding! Let’s learn about some data visualizations we can make with R.",
     "crumbs": [
       "Home"
     ]

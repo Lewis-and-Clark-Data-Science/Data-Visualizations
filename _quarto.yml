@@ -2,6 +2,9 @@ project:
   type: website
   output-dir: docs
 
+webr:
+  packages: ['tidyverse', 'palmerpenguins', 'gt']
+number-sections: true
 
 website:
   title: "Data Visualization Tutorials"
@@ -10,7 +13,16 @@ website:
     contents:
       - href: index.qmd
         text: Home
-      - href: tutorial1.qmd
+      - href: histogram.qmd
+        text: Histograms
+      - href: boxPlot.qmd
+        text: Box Plots
+      - href: scatterPlot.qmd
+        text: Scatter Plots
+      - href: barPlot.qmd
+        text: Bar Plots
+      - href: tipsAndTricks.qmd
+        text: Tips and Tricks
      
 format:
   html:

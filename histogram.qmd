@@ -1,0 +1,61 @@
+---
+title: "Histograms"
+format: html
+engine: knitr
+filters:
+  - webr
+---
+
+```{r}
+#| label: loading data sets
+#| include: false 
+library(tidyverse)
+
+#penguin data
+library(palmerpenguins)
+penguins<- palmerpenguins::penguins
+
+#Chick weight data
+data("ChickWeight")
+chickWeight<-ChickWeight
+
+#president data
+data("presidents")
+presidents<-presidents
+```
+
+## What is a histogram?
+
+A histogram is a graph that compares the ***frequency*** (y-axis) of any ***categorical or numeric*** variable (x-axis). In other words, it measures how often a value from the x-axis appears in a data set.
+
+Here is the framework of a histogram:
+
+```{r}
+#| label: generating frame plot
+#| warning: false
+#| echo: false
+plot(x = 1,                 
+     xlab = "Categorical/numeric variable", 
+     ylab = "Frequency",
+     xlim = c(0, 100), 
+     ylim = c(0, 100),
+     main = "Blank Plotting Canvas",
+     type = "n")
+```
+
+In the penguin dataset, we can use a histogram to determine how often each bill depth (variable: bill_depth_mm) value appears in the dataset.
+
+Here, there is a deviation from the ggplot framework in the home page. "bins" is used to tell R how many bars to create in your histogram. You can change this number as needed.
+
+```{r}
+ggplot(data=penguins, mapping=aes(x=bill_depth_mm, na.rm=TRUE))+
+  geom_histogram(bins=20)+
+  labs(title="Distribution of Antarctic Penguin Bill Depth", x="Bill depth (mm)", y="Frequency")
+
+```
+
+Now, create a histogram to see the distribution of chick weights (variable "weight") using the chickWeight dataset.
+
+```{webr-r}
+
+```

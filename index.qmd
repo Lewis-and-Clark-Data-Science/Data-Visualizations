@@ -5,18 +5,11 @@ engine: knitr
 filters:
   - webr
 ---
-
 ```{r}
-#| label: load-packages
-#| include: false
-
 library(tidyverse)
-
-install.packages("gt")
-library(gt)
-
+library(palmerpenguins)
+penguins<- palmerpenguins::penguins
 ```
-
 ## What is ggplot2?
 
 The grammar of graphics package in R called ggplot2 is used to generate data visualizations. It breaks down the components of a plot, so you can adjust its aesthetics (size or intensity of plot points, colors, spatial arrangement of the elements) for a variety of graph types. Here, we will use ggplot2 to code:
@@ -43,6 +36,8 @@ To load ggplot into your environment, run
 library(ggplot2)
 ```
 
+In this tutorial, don't worry about installing tidyverse. However, you must install it on any of your personal projects.
+
 ## Elements of a graph
 
 There are key features in all graphs, including:
@@ -61,7 +56,7 @@ Anyone should be able to look at a graph and understand your data without the co
 
 *What is this graph telling me? What is the relationship between the X and Y variables?*
 
-While you may not be able to draw conclusions from your graphs, they should give you the big picture of your data.
+The key to making a graph comprehensible is to make its story as clear as possible. Use the elements of your graph as tools to convey this story.
 
 ## Types of data
 
@@ -90,10 +85,15 @@ We will be using three different data sets to hone in on our data science skills
 -   Palmer penguins: This data set gives insight on the bill length, bill depth, flipper length, body mass, sex, and year of data collection of various Antarctic penguins. 
 
 ```{r}
-data("penguins") %>%
-  gt() %>%
-  tab_header= ("What a **nice title**")
-  subtitle = ("Pretty *cool subtitle* too, `isn't it?`"))
+#penguin data
+```
+
+```{r}
+#selecting all columns
+```
+
+```{r}
+#using gt
 ```
 
 -   Chick weight: This data set tracks the weight of chicks in grams on different diets over 21 days. The diet types are as follows:
@@ -107,17 +107,48 @@ data("penguins") %>%
     Diet 4: Normal feed, controlled group\
 
 ```{r}
-data(ChickWeight)
-chicks_tbl <- 
-  tibble(
-    name = names(penguins),
-    size = penguins)
+#selecting chick weight columns
+```
+
+```{r}
+#gt chick weights
 ```
 
 -   Presidents: This data set tracks the quarterly approval ratings of US presidents from 1945-1975.
 
 ```{r}
-data("presidents")
+#select president columns
+```
+
+```{r}
+#gt presidents
 ```
 
 Take a look at each data set by running their respective code chunks. Do you notice any trends? What variables interest you?
+
+## ggplot Code Framework
+
+In order to use ggplot, there here is a skeletal framework:
+
+
+#| echo: fenced
+#| results: hide
+ggplot(data=dataset, mapping=aes(x=xVariable, y=yVariable))+
+  geom_typeOfPlot()+
+  labs(title="Your title", x="Name of X variable", y="Your Y variable")
+
+Let's break down each part of this graph:
+
+-   First, are calling on the ggplot function.
+
+-   Then, we are asking R to look through our dataset.
+
+-   The mapping=aes is used to change elements in your graph that are in the "Tips and Tricks" section of this site.
+
+-   After that, we are explicitly telling R what variables we want on each axis.
+
+-   Next, we are specifying which type of graph we want R to make.
+
+-   Finally, we call on the labs function to rename our axes with our variable names, making sure to include units when necessary.
+
+Now, we are ready to start coding! Let's learn about some data visualizations we can make with R.

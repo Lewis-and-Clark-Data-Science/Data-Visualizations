@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Home – Data Visualization Tutorials</title>
+<title>Bar Plots – Data Visualization Tutorials</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,40 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -114,7 +80,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Home</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./barPlot.html">Bar Plots</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -141,7 +107,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
@@ -165,7 +131,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./barPlot.html" class="sidebar-item-text sidebar-link">
+  <a href="./barPlot.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Bar Plots</span></a>
   </div>
 </li>
@@ -180,27 +146,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#what-is-ggplot2" id="toc-what-is-ggplot2" class="nav-link active" data-scroll-target="#what-is-ggplot2"><span class="header-section-number">1</span> What is ggplot2?</a></li>
-  <li><a href="#installing-ggplot2" id="toc-installing-ggplot2" class="nav-link" data-scroll-target="#installing-ggplot2"><span class="header-section-number">2</span> Installing ggplot2</a></li>
-  <li><a href="#elements-of-a-graph" id="toc-elements-of-a-graph" class="nav-link" data-scroll-target="#elements-of-a-graph"><span class="header-section-number">3</span> Elements of a graph</a></li>
-  <li><a href="#what-makes-a-graph-good" id="toc-what-makes-a-graph-good" class="nav-link" data-scroll-target="#what-makes-a-graph-good"><span class="header-section-number">4</span> What makes a graph good?</a></li>
-  <li><a href="#types-of-data" id="toc-types-of-data" class="nav-link" data-scroll-target="#types-of-data"><span class="header-section-number">5</span> Types of data</a></li>
-  <li><a href="#data-in-this-tutorial" id="toc-data-in-this-tutorial" class="nav-link" data-scroll-target="#data-in-this-tutorial"><span class="header-section-number">6</span> Data in this tutorial</a></li>
-  <li><a href="#ggplot-code-framework" id="toc-ggplot-code-framework" class="nav-link" data-scroll-target="#ggplot-code-framework"><span class="header-section-number">7</span> ggplot Code Framework</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Home</h1>
+<h1 class="title">Bar Plots</h1>
 </div>
 
 
@@ -217,124 +171,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.3     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>penguins<span class="ot">&lt;-</span> palmerpenguins<span class="sc">::</span>penguins</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<section id="what-is-ggplot2" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="what-is-ggplot2"><span class="header-section-number">1</span> What is ggplot2?</h2>
-<p>The grammar of graphics package in R called ggplot2 is used to generate data visualizations. It breaks down the components of a plot, so you can adjust its aesthetics (size or intensity of plot points, colors, spatial arrangement of the elements) for a variety of graph types. Here, we will use ggplot2 to code:</p>
-<ul>
-<li><p>Histograms</p></li>
-<li><p>Box plots</p></li>
-<li><p>Bar charts</p></li>
-<li><p>Scatterplots</p></li>
-</ul>
-</section>
-<section id="installing-ggplot2" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="installing-ggplot2"><span class="header-section-number">2</span> Installing ggplot2</h2>
-<p>To install ggplot into your environment, run the code</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>To load ggplot into your environment, run</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>In this tutorial, don’t worry about installing tidyverse. However, you must install it on any of your personal projects.</p>
-</section>
-<section id="elements-of-a-graph" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="elements-of-a-graph"><span class="header-section-number">3</span> Elements of a graph</h2>
-<p>There are key features in all graphs, including:</p>
-<div class="line-block">A title: A good title should be the conclusion of your data analysis, or the relationship of your X and Y axes.</div>
-<div class="line-block">Axes: The X and Y axis should have their respective types of data. Each graph tutorial will guide you on what type of data goes on which axis.</div>
-<div class="line-block">Colors: Using colors can help guide your audience on what trend, if any, you want to emphasize. It is important to note that they should be used sparingly. While they may look pretty, having too many colors can be distracting of your data’s big picture.</div>
-<div class="line-block">Legends: To prevent the graph from being too busy, consider using a legend to explain your graph’s features.</div>
-</section>
-<section id="what-makes-a-graph-good" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="what-makes-a-graph-good"><span class="header-section-number">4</span> What makes a graph good?</h2>
-<p>Anyone should be able to look at a graph and understand your data without the context of your research. Take a step back from your code and ask yourself:</p>
-<p><em>What is this graph telling me? What is the relationship between the X and Y variables?</em></p>
-<p>The key to making a graph comprehensible is to make its story as clear as possible. Use the elements of your graph as tools to convey this story.</p>
-</section>
-<section id="types-of-data" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="types-of-data"><span class="header-section-number">5</span> Types of data</h2>
-<p>Identifying the types of data you have will help you identify the type of graph you’ll need. There are two types of data with two subcategories for each:&nbsp;</p>
-<p>Categorical: data that are arranged in groups</p>
-<div class="line-block">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nominal: there is no priority or ranking in groups&nbsp;</div>
-<div class="line-block">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Eg. yes or no, favorite colors</div>
-<div class="line-block">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ordinal: There is structure within the groups</div>
-<div class="line-block">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Eg small, medium, and large or cold, warm, and hot</div>
-<p>Numerical: all things numbers</p>
-<div class="line-block">Continuous: Decimal/fractional integers</div>
-<div class="line-block">Discrete: Whole integers</div>
-</section>
-<section id="data-in-this-tutorial" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="data-in-this-tutorial"><span class="header-section-number">6</span> Data in this tutorial</h2>
-<p>We will be using three different data sets to hone in on our data science skills.</p>
-<ul>
-<li>Palmer penguins: This data set gives insight on the bill length, bill depth, flipper length, body mass, sex, and year of data collection of various Antarctic penguins.&nbsp;</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#penguin data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#selecting all columns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#using gt</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li><p>Chick weight: This data set tracks the weight of chicks in grams on different diets over 21 days. The diet types are as follows:</p>
-<p>Diet 1: Normal feed with a 10% protein replacement</p>
-<p>Diet 2: Normal feed with a 20% protein replacement</p>
-<p>Diet 3: Normal feed with a 40% protein replacement</p>
-<p>Diet 4: Normal feed, controlled group<br>
-</p></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#selecting chick weight columns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#gt chick weights</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li>Presidents: This data set tracks the quarterly approval ratings of US presidents from 1945-1975.</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#select president columns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#gt presidents</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Take a look at each data set by running their respective code chunks. Do you notice any trends? What variables interest you?</p>
-</section>
-<section id="ggplot-code-framework" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="ggplot-code-framework"><span class="header-section-number">7</span> ggplot Code Framework</h2>
-<p>In order to use ggplot, there here is a skeletal framework:</p>
-<p>#| echo: fenced #| results: hide ggplot(data=dataset, mapping=aes(x=xVariable, y=yVariable))+ geom_typeOfPlot()+ labs(title=“Your title”, x=“Name of X variable”, y=“Your Y variable”)</p>
-<p>Let’s break down each part of this graph:</p>
-<ul>
-<li><p>First, are calling on the ggplot function.</p></li>
-<li><p>Then, we are asking R to look through our dataset.</p></li>
-<li><p>The mapping=aes is used to change elements in your graph that are in the “Tips and Tricks” section of this site.</p></li>
-<li><p>After that, we are explicitly telling R what variables we want on each axis.</p></li>
-<li><p>Next, we are specifying which type of graph we want R to make.</p></li>
-<li><p>Finally, we call on the labs function to rename our axes with our variable names, making sure to include units when necessary.</p></li>
-</ul>
-<p>Now, we are ready to start coding! Let’s learn about some data visualizations we can make with R.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
