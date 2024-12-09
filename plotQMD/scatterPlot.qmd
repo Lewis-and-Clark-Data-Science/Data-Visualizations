@@ -1,0 +1,79 @@
+---
+title: "Scatter Plots"
+format: html
+engine: knitr
+filters:
+  - webr
+---
+
+```{r}
+#| label: loading data sets
+#| include: false 
+library(tidyverse)
+
+#penguin data
+library(palmerpenguins)
+penguins<- palmerpenguins::penguins
+
+#Chick weight data
+data("ChickWeight")
+chickWeight<-ChickWeight
+
+#president data
+data("presidents")
+presidents<-presidents
+```
+
+## What is a scatter plot?
+
+A scatter plot compares both a numerical values on the x and y axes. They can be used to show trends over time, or to show the correlation between two variables.
+
+Here is the plot framework:
+
+```{r}
+#| label: generating frame plot
+#| warning: false
+#| echo: false
+plot(x = 1,                 
+     xlab = "Numeric variable", 
+     ylab = "Numeric variable",
+     xlim = c(0, 100), 
+     ylim = c(0, 100),
+     main = "Scatter plot framework",
+     type = "n")
+```
+
+## Penguin Data
+
+In the penguin data set, we can examine the relationship between bill depth and bill length.
+
+*Note*: To generate a scatter plot, we call on the geom_point( ) function with ggplot.
+
+```{r, warning = FALSE}
+ggplot(data=penguins, mapping=aes(x=bill_length_mm, y=bill_depth_mm))+
+  geom_point()
+```
+
+## Line of best fit
+
+So we have these dots, but how do we know if one variable *really* is related to another? We can use the Pearson correlation coeffcient, a measure of the linear relationship of two numeric variables. A perfect direct correlation would have a slope of 1, and a perfect indirect correlation would have a slope of -1.
+
+In order to perform regression analysis, or how the x and y variables are related, we can use a linear model equation y=mx + b, where y is a function of the change in a given y-value times its respective x-value, plus the y-intercept, or where the y-value crosses the y=0 axis.
+
+```{r, warning=FALSE}
+billDepthAndLengthModel=lm(data=penguins, formula=bill_depth_mm~bill_length_mm)
+
+summary(billDepthAndLengthModel)
+```
+
+While this output is intimidating, we only need two numbers for our purposes: the estimate intercept (b) and the slope (m), located right below that number.
+
+Our line of regression can be represented in the equation y = -0.08502x + 20.88574
+
+Here is the same scatter plot with the line of best fit:
+
+```{r, warning=FALSE}
+ggplot(data=penguins, mapping=aes(x=bill_length_mm, y=bill_depth_mm))+
+  geom_point()+
+  geom_smooth(method="lm")
+```

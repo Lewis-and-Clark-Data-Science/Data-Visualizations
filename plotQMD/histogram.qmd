@@ -39,15 +39,17 @@ plot(x = 1,
      ylab = "Frequency",
      xlim = c(0, 100), 
      ylim = c(0, 100),
-     main = "Blank Plotting Canvas",
+     main = "Histogram framework",
      type = "n")
 ```
 
+## Penguin Data
+
 In the penguin dataset, we can use a histogram to determine how often each bill depth (variable: bill_depth_mm) value appears in the dataset.
 
-Here, there is a deviation from the ggplot framework in the home page. "bins" is used to tell R how many bars to create in your histogram. You can change this number as needed.
+Here, there is a deviation from the ggplot framework in the home page. "bins" is used to tell R how many bars to create in your histogram. You can change this number as needed. Ideally, you want to keep the bin number large enough to see patterns in your data , but small enough to keep outliers to a minimum.
 
-```{r}
+```{r, warning=FALSE}
 ggplot(data=penguins, mapping=aes(x=bill_depth_mm, na.rm=TRUE))+
   geom_histogram(bins=20)+
   labs(title="Distribution of Antarctic Penguin Bill Depth", x="Bill depth (mm)", y="Frequency")

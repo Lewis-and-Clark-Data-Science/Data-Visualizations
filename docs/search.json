@@ -1,40 +1,10 @@
 [
   {
-    "objectID": "histogram.html",
-    "href": "histogram.html",
-    "title": "Histograms",
-    "section": "",
-    "text": "A histogram is a graph that compares the frequency (y-axis) of any categorical or numeric variable (x-axis). In other words, it measures how often a value from the x-axis appears in a data set.\nHere is the framework of a histogram:\n\n\n\n\n\n\n\n\n\nIn the penguin dataset, we can use a histogram to determine how often each bill depth (variable: bill_depth_mm) value appears in the dataset.\nHere, there is a deviation from the ggplot framework in the home page. “bins” is used to tell R how many bars to create in your histogram. You can change this number as needed.\n\nggplot(data=penguins, mapping=aes(x=bill_depth_mm, na.rm=TRUE))+\n  geom_histogram(bins=20)+\n  labs(title=\"Distribution of Antarctic Penguin Bill Depth\", x=\"Bill depth (mm)\", y=\"Frequency\")\n\nWarning: Removed 2 rows containing non-finite outside the scale range\n(`stat_bin()`).\n\n\n\n\n\n\n\n\n\nNow, create a histogram to see the distribution of chick weights (variable “weight”) using the chickWeight dataset.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
-    "crumbs": [
-      "Histograms"
-    ]
-  },
-  {
-    "objectID": "histogram.html#what-is-a-histogram",
-    "href": "histogram.html#what-is-a-histogram",
-    "title": "Histograms",
-    "section": "",
-    "text": "A histogram is a graph that compares the frequency (y-axis) of any categorical or numeric variable (x-axis). In other words, it measures how often a value from the x-axis appears in a data set.\nHere is the framework of a histogram:\n\n\n\n\n\n\n\n\n\nIn the penguin dataset, we can use a histogram to determine how often each bill depth (variable: bill_depth_mm) value appears in the dataset.\nHere, there is a deviation from the ggplot framework in the home page. “bins” is used to tell R how many bars to create in your histogram. You can change this number as needed.\n\nggplot(data=penguins, mapping=aes(x=bill_depth_mm, na.rm=TRUE))+\n  geom_histogram(bins=20)+\n  labs(title=\"Distribution of Antarctic Penguin Bill Depth\", x=\"Bill depth (mm)\", y=\"Frequency\")\n\nWarning: Removed 2 rows containing non-finite outside the scale range\n(`stat_bin()`).\n\n\n\n\n\n\n\n\n\nNow, create a histogram to see the distribution of chick weights (variable “weight”) using the chickWeight dataset.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
-    "crumbs": [
-      "Histograms"
-    ]
-  },
-  {
-    "objectID": "boxPlot.html",
-    "href": "boxPlot.html",
-    "title": "Box Plots",
-    "section": "",
-    "text": "A box plot is a graph that shows a numeric summary (y-axis) of either a categorical or numerical variable (x-axis). It gives information on the range of the data with either end of the plot.\nThe “box,” as shown below, represents three values: the 25th percentile, median (50th percentile), and the 75th percentile. Each horizontal bar corresponds to a number where that percentage of the data falls below. In other words, the horizontal bar closest to the x-axis represents where 25% of the data falls below, the bar in between the box is the median, or where 50% of the data fall below, and the furthest horizontal bar represents where 75% of the data falls below.\nThe vertical lines that emerge from the box are called whiskers. The whisker closest to the x-axis represents the minimum calculated by subtracting three times the interquartile range (75th percentile-25th percentile) from the value for the 25th percentile. The furthest whisker from the x-axis represents the maximum calculated by subtracting three times the interquartile range from the 75th percentile.\nHere is the framework of a box plot.\n\n\n\n\n\n\n\n\n\nUsing the penguin dataset, we can compare the flipper lengths (variable: flipper_length_mm) of the different species (variable: species) of penguins.\n\nggplot(data=penguins, mapping = aes(x=species, y=flipper_length_mm))+\n  geom_boxplot()+\n  labs(x=\"Species of Antarctic penguin\", y=\"Flipper length (mm)\", title = \"Species of Antarctic penguins have different flipper lengths\")\n\nWarning: Removed 2 rows containing non-finite outside the scale range\n(`stat_boxplot()`).\n\n\n\n\n\n\n\n\n\nFor the Adelie penguins, there are outliers on either side of the whiskers. These are values fall short/exceed the whisker value calculation.\nNow, compare the flipper lengths (variable: flipper_length_mm) of the different sexes (variable: sex) of penguins\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
-    "crumbs": [
-      "Box Plots"
-    ]
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Home",
     "section": "",
-    "text": "library(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(palmerpenguins)\npenguins&lt;- palmerpenguins::penguins",
+    "text": "The grammar of graphics package in R called ggplot2 is used to generate data visualizations. It breaks down the components of a plot, so you can adjust its aesthetics (size or intensity of plot points, colors, spatial arrangement of the elements) for a variety of graph types. Here, we will use ggplot2 to code:\n\nHistograms\nBox plots\nScatter plots\nBar plots",
     "crumbs": [
       "Home"
     ]
@@ -43,8 +13,8 @@
     "objectID": "index.html#what-is-ggplot2",
     "href": "index.html#what-is-ggplot2",
     "title": "Home",
-    "section": "1 What is ggplot2?",
-    "text": "1 What is ggplot2?\nThe grammar of graphics package in R called ggplot2 is used to generate data visualizations. It breaks down the components of a plot, so you can adjust its aesthetics (size or intensity of plot points, colors, spatial arrangement of the elements) for a variety of graph types. Here, we will use ggplot2 to code:\n\nHistograms\nBox plots\nBar charts\nScatterplots",
+    "section": "",
+    "text": "The grammar of graphics package in R called ggplot2 is used to generate data visualizations. It breaks down the components of a plot, so you can adjust its aesthetics (size or intensity of plot points, colors, spatial arrangement of the elements) for a variety of graph types. Here, we will use ggplot2 to code:\n\nHistograms\nBox plots\nScatter plots\nBar plots",
     "crumbs": [
       "Home"
     ]
@@ -54,7 +24,7 @@
     "href": "index.html#installing-ggplot2",
     "title": "Home",
     "section": "2 Installing ggplot2",
-    "text": "2 Installing ggplot2\nTo install ggplot into your environment, run the code\ninstall.packages(\"ggplot2\")\nTo load ggplot into your environment, run\nlibrary(ggplot2)\nIn this tutorial, don’t worry about installing tidyverse. However, you must install it on any of your personal projects.",
+    "text": "2 Installing ggplot2\nggplot is a sub-package included in the tidyverse package. To install ggplot into your environment, run the code\ninstall.packages(\"tidyverse\")\nTo load ggplot into your environment, run\nlibrary(tidyverse)\nIn this tutorial, don’t worry about installing tidyverse. However, you must install it on any of your personal projects.",
     "crumbs": [
       "Home"
     ]
@@ -84,7 +54,7 @@
     "href": "index.html#types-of-data",
     "title": "Home",
     "section": "5 Types of data",
-    "text": "5 Types of data\nIdentifying the types of data you have will help you identify the type of graph you’ll need. There are two types of data with two subcategories for each: \nCategorical: data that are arranged in groups\n              Nominal: there is no priority or ranking in groups \n              Eg. yes or no, favorite colors\n              Ordinal: There is structure within the groups\n              Eg small, medium, and large or cold, warm, and hot\nNumerical: all things numbers\nContinuous: Decimal/fractional integers\nDiscrete: Whole integers",
+    "text": "5 Types of data\nIdentifying the types of data you have will help you identify the type of graph you’ll need. There are two types of data with two subcategories for each:\nCategorical: data that are arranged in groups\nNominal: there is no priority or ranking in groups (e.g. yes or no, favorite colors)\n\nOrdinal: There is structure within the groups (e.g. small, medium, and large or cold, warm, and hot)\nNumerical: all things numbers\nContinuous: Decimal/fractional integers\n\nDiscrete: Whole integers",
     "crumbs": [
       "Home"
     ]
@@ -94,7 +64,7 @@
     "href": "index.html#data-in-this-tutorial",
     "title": "Home",
     "section": "6 Data in this tutorial",
-    "text": "6 Data in this tutorial\nWe will be using three different data sets to hone in on our data science skills.\n\nPalmer penguins: This data set gives insight on the bill length, bill depth, flipper length, body mass, sex, and year of data collection of various Antarctic penguins. \n\n\n#penguin data\n\n\n#selecting all columns\n\n\n#using gt\n\n\nChick weight: This data set tracks the weight of chicks in grams on different diets over 21 days. The diet types are as follows:\nDiet 1: Normal feed with a 10% protein replacement\nDiet 2: Normal feed with a 20% protein replacement\nDiet 3: Normal feed with a 40% protein replacement\nDiet 4: Normal feed, controlled group\n\n\n\n#selecting chick weight columns\n\n\n#gt chick weights\n\n\nPresidents: This data set tracks the quarterly approval ratings of US presidents from 1945-1975.\n\n\n#select president columns\n\n\n#gt presidents\n\nTake a look at each data set by running their respective code chunks. Do you notice any trends? What variables interest you?",
+    "text": "6 Data in this tutorial\nWe will be using three different data sets to hone in on our data science skills.\nPalmer penguins: This data set gives insight on the bill length, bill depth, flipper length, body mass, sex, and year of data collection of various Antarctic penguins.\nChick weight: This data set tracks the weight of chicks in grams on different diets over 21 days. The diet types are as follows:\nDiet 1: Normal feed with a 10% protein replacement\n\nDiet 2: Normal feed with a 20% protein replacement\n\nDiet 3: Normal feed with a 40% protein replacement\n\nDiet 4: Normal feed, controlled group\n\n#gt chick weights\n\nPresidents: This data set tracks the quarterly approval ratings of US presidents from 1945-1975.\n\n#select president columns\n\n\n#gt presidents\n\nTake a look at each data set by running their respective code chunks. Do you notice any trends? What variables interest you?",
     "crumbs": [
       "Home"
     ]
@@ -104,9 +74,110 @@
     "href": "index.html#ggplot-code-framework",
     "title": "Home",
     "section": "7 ggplot Code Framework",
-    "text": "7 ggplot Code Framework\nIn order to use ggplot, there here is a skeletal framework:\n#| echo: fenced #| results: hide ggplot(data=dataset, mapping=aes(x=xVariable, y=yVariable))+ geom_typeOfPlot()+ labs(title=“Your title”, x=“Name of X variable”, y=“Your Y variable”)\nLet’s break down each part of this graph:\n\nFirst, are calling on the ggplot function.\nThen, we are asking R to look through our dataset.\nThe mapping=aes is used to change elements in your graph that are in the “Tips and Tricks” section of this site.\nAfter that, we are explicitly telling R what variables we want on each axis.\nNext, we are specifying which type of graph we want R to make.\nFinally, we call on the labs function to rename our axes with our variable names, making sure to include units when necessary.\n\nNow, we are ready to start coding! Let’s learn about some data visualizations we can make with R.",
+    "text": "7 ggplot Code Framework\nIn order to use ggplot, there here is a skeletal framework:\nggplot(data=dataset, mapping=aes(x=xVariable, y=yVariable))+ geom_typeOfPlot()+ labs(title=\"Your title\", x=\"Name of X variable\", y=\"Your Y variable\")\nLet’s break down each part of this graph:\n\nFirst, are calling on the ggplot function.\nThen, we are asking R to look through our dataset.\nThe mapping=aes is used to change elements in your graph that are in the “Tips and Tricks” section of this site.\nAfter that, we are explicitly telling R what variables we want on each axis.\nNext, we are specifying which type of graph we want R to make.\nFinally, we call on the labs function to rename our axes with our variable names, making sure to include units when necessary.\n\nNow, we are ready to start coding! Let’s learn about some plots we can make with R.",
     "crumbs": [
       "Home"
     ]
+  },
+  {
+    "objectID": "plotQMD/scatterPlot.html",
+    "href": "plotQMD/scatterPlot.html",
+    "title": "Scatter Plots",
+    "section": "",
+    "text": "A scatter plot compares both a numerical values on the x and y axes. They can be used to show trends over time, or to show the correlation between two variables.\nHere is the plot framework:"
+  },
+  {
+    "objectID": "plotQMD/scatterPlot.html#what-is-a-scatter-plot",
+    "href": "plotQMD/scatterPlot.html#what-is-a-scatter-plot",
+    "title": "Scatter Plots",
+    "section": "",
+    "text": "A scatter plot compares both a numerical values on the x and y axes. They can be used to show trends over time, or to show the correlation between two variables.\nHere is the plot framework:"
+  },
+  {
+    "objectID": "plotQMD/scatterPlot.html#penguin-data",
+    "href": "plotQMD/scatterPlot.html#penguin-data",
+    "title": "Scatter Plots",
+    "section": "2 Penguin Data",
+    "text": "2 Penguin Data\nIn the penguin data set, we can examine the relationship between bill depth and bill length.\nNote: To generate a scatter plot, we call on the geom_point( ) function with ggplot.\n\nggplot(data=penguins, mapping=aes(x=bill_length_mm, y=bill_depth_mm))+\n  geom_point()"
+  },
+  {
+    "objectID": "plotQMD/scatterPlot.html#line-of-best-fit",
+    "href": "plotQMD/scatterPlot.html#line-of-best-fit",
+    "title": "Scatter Plots",
+    "section": "3 Line of best fit",
+    "text": "3 Line of best fit\nSo we have these dots, but how do we know if one variable really is related to another? We can use the Pearson correlation coeffcient, a measure of the linear relationship of two numeric variables. A perfect direct correlation would have a slope of 1, and a perfect indirect correlation would have a slope of -1.\nIn order to perform regression analysis, or how the x and y variables are related, we can use a linear model equation y=mx + b, where y is a function of the change in a given y-value times its respective x-value, plus the y-intercept, or where the y-value crosses the y=0 axis.\n\nbillDepthAndLengthModel=lm(data=penguins, formula=bill_depth_mm~bill_length_mm)\n\nsummary(billDepthAndLengthModel)\n\n\nCall:\nlm(formula = bill_depth_mm ~ bill_length_mm, data = penguins)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-4.1381 -1.4263  0.0164  1.3841  4.5255 \n\nCoefficients:\n               Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)    20.88547    0.84388  24.749  &lt; 2e-16 ***\nbill_length_mm -0.08502    0.01907  -4.459 1.12e-05 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 1.922 on 340 degrees of freedom\n  (2 observations deleted due to missingness)\nMultiple R-squared:  0.05525,   Adjusted R-squared:  0.05247 \nF-statistic: 19.88 on 1 and 340 DF,  p-value: 1.12e-05\n\n\nWhile this output is intimidating, we only need two numbers for our purposes: the estimate intercept (b) and the slope (m), located right below that number.\nOur line of regression can be represented in the equation y = -0.08502x + 20.88574\nHere is the same scatter plot with the line of best fit:\n\nggplot(data=penguins, mapping=aes(x=bill_length_mm, y=bill_depth_mm))+\n  geom_point()+\n  geom_smooth(method=\"lm\")\n\n`geom_smooth()` using formula = 'y ~ x'"
+  },
+  {
+    "objectID": "plotQMD/boxPlot.html",
+    "href": "plotQMD/boxPlot.html",
+    "title": "Box Plots",
+    "section": "",
+    "text": "A box plot is a graph that shows a numeric summary (y-axis) of either a categorical or numerical variable (x-axis). It gives information on the spread of data.\nHere is the framework of a box plot, with a normally distributed data set.\n\n\n\n\n\n\n\n\n\nThe “box,” as shown below, represents three values: the 25th percentile, median (50th percentile), and the 75th percentile. Each horizontal bar corresponds to a number where that percentage of the data falls below. In other words, the horizontal bar closest to the x-axis represents where 25% of the data falls below, the bar in between the box is the median, or where 50% of the data fall below, and the furthest horizontal bar represents where 75% of the data falls below.\nThe vertical lines that emerge from the box are called whiskers. The whisker closest to the x-axis represents the minimum calculated by subtracting three times the interquartile range (75th percentile-25th percentile) from the value for the 25th percentile. The furthest whisker from the x-axis represents the maximum calculated by subtracting three times the interquartile range from the 75th percentile.\nData points that exist outside of these calculated minimum and maximum values exist as points separated from the plot, called outliers."
+  },
+  {
+    "objectID": "plotQMD/boxPlot.html#what-is-a-box-plot",
+    "href": "plotQMD/boxPlot.html#what-is-a-box-plot",
+    "title": "Box Plots",
+    "section": "",
+    "text": "A box plot is a graph that shows a numeric summary (y-axis) of either a categorical or numerical variable (x-axis). It gives information on the spread of data.\nHere is the framework of a box plot, with a normally distributed data set.\n\n\n\n\n\n\n\n\n\nThe “box,” as shown below, represents three values: the 25th percentile, median (50th percentile), and the 75th percentile. Each horizontal bar corresponds to a number where that percentage of the data falls below. In other words, the horizontal bar closest to the x-axis represents where 25% of the data falls below, the bar in between the box is the median, or where 50% of the data fall below, and the furthest horizontal bar represents where 75% of the data falls below.\nThe vertical lines that emerge from the box are called whiskers. The whisker closest to the x-axis represents the minimum calculated by subtracting three times the interquartile range (75th percentile-25th percentile) from the value for the 25th percentile. The furthest whisker from the x-axis represents the maximum calculated by subtracting three times the interquartile range from the 75th percentile.\nData points that exist outside of these calculated minimum and maximum values exist as points separated from the plot, called outliers."
+  },
+  {
+    "objectID": "plotQMD/boxPlot.html#penguin-data",
+    "href": "plotQMD/boxPlot.html#penguin-data",
+    "title": "Box Plots",
+    "section": "2 Penguin Data",
+    "text": "2 Penguin Data\nUsing the penguin dataset, we can compare the flipper lengths (variable: flipper_length_mm) of the different species (variable: species) of penguins.\nNote: We will call on the geom_boxplot( ) function when we code using ggplot\n\nggplot(data=penguins, mapping = aes(x=species, y=flipper_length_mm))+\n  geom_boxplot()+\n  labs(x=\"Species of Antarctic penguin\", y=\"Flipper length (mm)\", title = \"Species of Antarctic penguins have different flipper lengths\")\n\nWarning: Removed 2 rows containing non-finite outside the scale range\n(`stat_boxplot()`).\n\n\n\n\n\n\n\n\n\nFor the Adelie penguins, there are outliers on either side of the whiskers. These are values fall short/exceed the whisker value calculation.\nNow, compare the flipper lengths (variable: flipper_length_mm) of the different sexes (variable: sex) of penguins\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
+    "objectID": "tipsAndTricks.html",
+    "href": "tipsAndTricks.html",
+    "title": "Tips and Tricks",
+    "section": "",
+    "text": "Here are some tools that can improve your data visualizations\nFacet wrap is a function that can display multiple data visualizations at once. Fo",
+    "crumbs": [
+      "Tips and Tricks"
+    ]
+  },
+  {
+    "objectID": "plotQMD/histogram.html",
+    "href": "plotQMD/histogram.html",
+    "title": "Histograms",
+    "section": "",
+    "text": "A histogram is a graph that compares the frequency (y-axis) of any categorical or numeric variable (x-axis). In other words, it measures how often a value from the x-axis appears in a data set.\nHere is the framework of a histogram:"
+  },
+  {
+    "objectID": "plotQMD/histogram.html#what-is-a-histogram",
+    "href": "plotQMD/histogram.html#what-is-a-histogram",
+    "title": "Histograms",
+    "section": "",
+    "text": "A histogram is a graph that compares the frequency (y-axis) of any categorical or numeric variable (x-axis). In other words, it measures how often a value from the x-axis appears in a data set.\nHere is the framework of a histogram:"
+  },
+  {
+    "objectID": "plotQMD/histogram.html#penguin-data",
+    "href": "plotQMD/histogram.html#penguin-data",
+    "title": "Histograms",
+    "section": "2 Penguin Data",
+    "text": "2 Penguin Data\nIn the penguin dataset, we can use a histogram to determine how often each bill depth (variable: bill_depth_mm) value appears in the dataset.\nHere, there is a deviation from the ggplot framework in the home page. “bins” is used to tell R how many bars to create in your histogram. You can change this number as needed. Ideally, you want to keep the bin number large enough to see patterns in your data , but small enough to keep outliers to a minimum.\n\nggplot(data=penguins, mapping=aes(x=bill_depth_mm, na.rm=TRUE))+\n  geom_histogram(bins=20)+\n  labs(title=\"Distribution of Antarctic Penguin Bill Depth\", x=\"Bill depth (mm)\", y=\"Frequency\")\n\n\n\n\n\n\n\n\nNow, create a histogram to see the distribution of chick weights (variable “weight”) using the chickWeight dataset.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
+    "objectID": "plotQMD/barPlot.html",
+    "href": "plotQMD/barPlot.html",
+    "title": "Bar Plots",
+    "section": "",
+    "text": "A bar plot compares a categorical variable (x-axis) to a numeric continuous variable (y-axis). Each bar represents the average or the frequency for each categorical variable. The bars can also be used to represent the counts, or number of occurences within a categorical variable.\nHere is the framework for a bar graph:"
+  },
+  {
+    "objectID": "plotQMD/barPlot.html#what-is-a-bar-plot",
+    "href": "plotQMD/barPlot.html#what-is-a-bar-plot",
+    "title": "Bar Plots",
+    "section": "",
+    "text": "A bar plot compares a categorical variable (x-axis) to a numeric continuous variable (y-axis). Each bar represents the average or the frequency for each categorical variable. The bars can also be used to represent the counts, or number of occurences within a categorical variable.\nHere is the framework for a bar graph:"
+  },
+  {
+    "objectID": "plotQMD/barPlot.html#penguin-data",
+    "href": "plotQMD/barPlot.html#penguin-data",
+    "title": "Bar Plots",
+    "section": "2 Penguin data",
+    "text": "2 Penguin data\nNow, let’s see how the average bill depths of female and male Adelie penguins compare, using the penguins dataset.\nNote: We will call on the geom_bar( ) function using ggplot. When we call this function, we use stat=“identity” to tell R we want our y-axis to represent the average bill depth, instead of counting how many sexes are represented for Adelie penguins in this data set.\n\n#first, we must group_by( ) and summarize ( ) the data on Adelie penguins\nadeliePenguins&lt;- penguins |&gt;\n  filter(species==\"Adelie\")|&gt;\n  group_by(sex, na.rm=TRUE) |&gt;\n  summarize(avgBillDepth = mean(bill_depth_mm, na.rm=TRUE), sdBillDepth = sd(bill_depth_mm, na.rm=TRUE))\n\n`summarise()` has grouped output by 'sex'. You can override using the `.groups`\nargument.\n\nggplot(data=adeliePenguins, mapping = aes(x = sex, y=avgBillDepth, fill = sex))+\n  geom_bar(stat=\"identity\")\n\n\n\n\n\n\n\n\nWe can also add error bars to our graphs when we use them to represent averages. Error bars help represent the spread of data using a quantity known as the standard deviation. The standard deviation represents, on average, how much every data point is from the mean.\nThe error bars extend from the top of the column plus and minus the standard deviation.\nHere is the same plot, with the error bars.\nNote: To create error bars, call on the geom_errorbar( ) function, with a nested mapping=aes( ), as shown\n\nggplot(data=adeliePenguins, mapping = aes(x = sex, y=avgBillDepth, fill = sex))+\n  geom_bar(stat=\"identity\")+\n  geom_errorbar(mapping=aes(ymin=avgBillDepth-sdBillDepth, ymax=avgBillDepth+sdBillDepth))"
   }
 ]

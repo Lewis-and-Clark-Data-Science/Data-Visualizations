@@ -5,11 +5,7 @@ engine: knitr
 filters:
   - webr
 ---
-```{r}
-library(tidyverse)
-library(palmerpenguins)
-penguins<- palmerpenguins::penguins
-```
+
 ## What is ggplot2?
 
 The grammar of graphics package in R called ggplot2 is used to generate data visualizations. It breaks down the components of a plot, so you can adjust its aesthetics (size or intensity of plot points, colors, spatial arrangement of the elements) for a variety of graph types. Here, we will use ggplot2 to code:
@@ -18,22 +14,22 @@ The grammar of graphics package in R called ggplot2 is used to generate data vis
 
 -   Box plots
 
--   Bar charts
+-   Scatter plots
 
--   Scatterplots
+-   Bar plots
 
 ## Installing ggplot2
 
-To install ggplot into your environment, run the code
+ggplot is a sub-package included in the tidyverse package. To install ggplot into your environment, run the code
 
 ``` r
-install.packages("ggplot2")
+install.packages("tidyverse")
 ```
 
 To load ggplot into your environment, run
 
 ``` r
-library(ggplot2)
+library(tidyverse)
 ```
 
 In this tutorial, don't worry about installing tidyverse. However, you must install it on any of your personal projects.
@@ -42,13 +38,13 @@ In this tutorial, don't worry about installing tidyverse. However, you must inst
 
 There are key features in all graphs, including:
 
-| A title: A good title should be the conclusion of your data analysis, or the relationship of your X and Y axes.
+[A title]{.underline}: A good title should be the conclusion of your data analysis, or the relationship of your X and Y axes.
 
-| Axes: The X and Y axis should have their respective types of data. Each graph tutorial will guide you on what type of data goes on which axis.
+[Axes]{.underline}: The X and Y axis should have their respective types of data. Each graph tutorial will guide you on what type of data goes on which axis.
 
-| Colors: Using colors can help guide your audience on what trend, if any, you want to emphasize. It is important to note that they should be used sparingly. While they may look pretty, having too many colors can be distracting of your data’s big picture.
+[Colors]{.underline}: Using colors can help guide your audience on what trend, if any, you want to emphasize. It is important to note that they should be used sparingly. While they may look pretty, having too many colors can be distracting of your data’s big picture.
 
-| Legends: To prevent the graph from being too busy, consider using a legend to explain your graph’s features.
+[Legends]{.underline}: To prevent the graph from being too busy, consider using a legend to explain your graph’s features.
 
 ## What makes a graph good?
 
@@ -60,61 +56,47 @@ The key to making a graph comprehensible is to make its story as clear as possib
 
 ## Types of data
 
-Identifying the types of data you have will help you identify the type of graph you’ll need. There are two types of data with two subcategories for each: 
+Identifying the types of data you have will help you identify the type of graph you’ll need. There are two types of data with two subcategories for each:
 
 Categorical: data that are arranged in groups
 
-|               Nominal: there is no priority or ranking in groups 
+```         
+Nominal: there is no priority or ranking in groups (e.g. yes or no, favorite colors)
 
-|               Eg. yes or no, favorite colors
-
-|               Ordinal: There is structure within the groups
-
-|               Eg small, medium, and large or cold, warm, and hot
+Ordinal: There is structure within the groups (e.g. small, medium, and large or cold, warm, and hot)
+```
 
 Numerical: all things numbers
 
-| Continuous: Decimal/fractional integers
+```         
+Continuous: Decimal/fractional integers
 
-| Discrete: Whole integers
+Discrete: Whole integers
+```
 
 ## Data in this tutorial
 
 We will be using three different data sets to hone in on our data science skills.
 
--   Palmer penguins: This data set gives insight on the bill length, bill depth, flipper length, body mass, sex, and year of data collection of various Antarctic penguins. 
+**Palmer penguins**: This data set gives insight on the bill length, bill depth, flipper length, body mass, sex, and year of data collection of various Antarctic penguins.
 
-```{r}
-#penguin data
-```
+**Chick weight**: This data set tracks the weight of chicks in grams on different diets over 21 days. The diet types are as follows:
 
-```{r}
-#selecting all columns
-```
+```         
+Diet 1: Normal feed with a 10% protein replacement
 
-```{r}
-#using gt
-```
+Diet 2: Normal feed with a 20% protein replacement
 
--   Chick weight: This data set tracks the weight of chicks in grams on different diets over 21 days. The diet types are as follows:
+Diet 3: Normal feed with a 40% protein replacement
 
-    Diet 1: Normal feed with a 10% protein replacement
-
-    Diet 2: Normal feed with a 20% protein replacement
-
-    Diet 3: Normal feed with a 40% protein replacement
-
-    Diet 4: Normal feed, controlled group\
-
-```{r}
-#selecting chick weight columns
+Diet 4: Normal feed, controlled group
 ```
 
 ```{r}
 #gt chick weights
 ```
 
--   Presidents: This data set tracks the quarterly approval ratings of US presidents from 1945-1975.
+**Presidents**: This data set tracks the quarterly approval ratings of US presidents from 1945-1975.
 
 ```{r}
 #select president columns
@@ -130,12 +112,9 @@ Take a look at each data set by running their respective code chunks. Do you not
 
 In order to use ggplot, there here is a skeletal framework:
 
-
-#| echo: fenced
-#| results: hide
-ggplot(data=dataset, mapping=aes(x=xVariable, y=yVariable))+
-  geom_typeOfPlot()+
-  labs(title="Your title", x="Name of X variable", y="Your Y variable")
+``` r
+ggplot(data=dataset, mapping=aes(x=xVariable, y=yVariable))+ geom_typeOfPlot()+ labs(title="Your title", x="Name of X variable", y="Your Y variable")
+```
 
 Let's break down each part of this graph:
 
@@ -151,4 +130,4 @@ Let's break down each part of this graph:
 
 -   Finally, we call on the labs function to rename our axes with our variable names, making sure to include units when necessary.
 
-Now, we are ready to start coding! Let's learn about some data visualizations we can make with R.
+Now, we are ready to start coding! Let's learn about some plots we can make with R.

@@ -5,3 +5,7 @@ engine: knitr
 filters:
   - webr
 ---
+
+Here are some tools that can improve your data visualizations
+
+Facet wrap is a function that can display multiple data visualizations at once. Fo

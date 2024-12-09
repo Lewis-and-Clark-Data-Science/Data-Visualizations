@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 webr:
-  packages: ['tidyverse', 'palmerpenguins', 'gt']
+  packages: ['tidyverse', 'palmerpenguins', 'gt', 'dplyr']
 number-sections: true
 
 website:

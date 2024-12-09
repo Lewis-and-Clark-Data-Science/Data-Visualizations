@@ -1,9 +1,0 @@
----
-title: "Bar Plots"
-format: html
-engine: knitr
-filters:
-  - webr
----
-## What is a bar plot?
-A bar plot compares a categorical variable (x-axis) to a numeric continuous variable (x-axis). Each bar represents the average numerical variable for each categorical variable. 

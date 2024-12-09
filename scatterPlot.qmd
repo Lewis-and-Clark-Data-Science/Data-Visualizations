@@ -1,7 +1,0 @@
----
-title: "Scatter Plots"
-format: html
-engine: knitr
-filters:
-  - webr
----

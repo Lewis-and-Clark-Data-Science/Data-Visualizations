@@ -57,22 +57,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -368,7 +368,7 @@ body.reveal.quarto-dark div.qwebr-console-area {
 // Document level settings ----
 
 // Determine if we need to install R packages
-globalThis.qwebrInstallRPackagesList = ['tidyverse', 'palmerpenguins', 'gt'];
+globalThis.qwebrInstallRPackagesList = ['tidyverse', 'palmerpenguins', 'gt', 'dplyr'];
 
 // Specify possible locations to search for the repository
 globalThis.qwebrPackageRepoURLS = ['https://repo.r-wasm.org/'];
@@ -390,7 +390,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"","id":1,"options":{"out-width":"700px","editor-quick-suggestions":"false","output":"true","editor-word-wrap":"true","dpi":72,"autorun":"false","results":"markup","read-only":"false","out-height":"","classes":"","warning":"true","context":"interactive","fig-cap":"","fig-height":5,"label":"unnamed-chunk-1","fig-width":7,"editor-font-scale":"1","comment":"","editor-max-height":"","message":"true"}}];
+globalThis.qwebrCellDetails = [{"code":"","id":1,"options":{"message":"true","results":"markup","read-only":"false","autorun":"false","out-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","editor-font-scale":"1","fig-width":7,"dpi":72,"output":"true","editor-max-height":"","comment":"","out-width":"700px","classes":"","warning":"true","fig-height":5,"label":"unnamed-chunk-1","context":"interactive","fig-cap":""}}];
 
 </script>
 <script type="module">
@@ -1601,7 +1601,9 @@ globalThis.qwebrExecuteCode = async function (
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./boxPlot.html">Box Plots</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      Data Visualization Tutorials
+      </li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -1616,7 +1618,7 @@ globalThis.qwebrExecuteCode = async function (
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Data Visualization Tutorials</a> 
+      <a href="../">Data Visualization Tutorials</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -1628,37 +1630,37 @@ globalThis.qwebrExecuteCode = async function (
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./histogram.html" class="sidebar-item-text sidebar-link">
+  <a href="../histogram.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Histograms</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./boxPlot.html" class="sidebar-item-text sidebar-link active">
+  <a href="../boxPlot.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Box Plots</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./scatterPlot.html" class="sidebar-item-text sidebar-link">
+  <a href="../scatterPlot.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Scatter Plots</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./barPlot.html" class="sidebar-item-text sidebar-link">
+  <a href="../barPlot.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bar Plots</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tipsAndTricks.html" class="sidebar-item-text sidebar-link">
+  <a href="../tipsAndTricks.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tips and Tricks</span></a>
   </div>
 </li>
@@ -1667,8 +1669,15 @@ globalThis.qwebrExecuteCode = async function (
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-is-a-box-plot" id="toc-what-is-a-box-plot" class="nav-link active" data-scroll-target="#what-is-a-box-plot"><span class="header-section-number">1</span> What is a box plot</a></li>
+  <li><a href="#penguin-data" id="toc-penguin-data" class="nav-link" data-scroll-target="#penguin-data"><span class="header-section-number">2</span> Penguin Data</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -1976,10 +1985,10 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </header>
 
 
-<p>A box plot is a graph that shows a <strong><em>numeric</em></strong> summary (y-axis) of either a <strong><em>categorical or numerical</em></strong> variable (x-axis). It gives information on the range of the data with either end of the plot.</p>
-<p>The “<strong>box</strong>,” as shown below, represents three values: the 25th percentile, median (50th percentile), and the 75th percentile. Each horizontal bar corresponds to a number where that percentage of the data falls below. In other words, the horizontal bar closest to the x-axis represents where 25% of the data falls below, the bar in between the box is the median, or where 50% of the data fall below, and the furthest horizontal bar represents where 75% of the data falls below.</p>
-<p>The vertical lines that emerge from the box are called <strong>whiskers</strong>. The whisker closest to the x-axis represents the minimum calculated by subtracting three times the interquartile range (75th percentile-25th percentile) from the value for the 25th percentile. The furthest whisker from the x-axis represents the maximum calculated by subtracting three times the interquartile range from the 75th percentile.</p>
-<p>Here is the framework of a box plot.</p>
+<section id="what-is-a-box-plot" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="what-is-a-box-plot"><span class="header-section-number">1</span> What is a box plot</h2>
+<p>A box plot is a graph that shows a <strong><em>numeric</em></strong> summary (y-axis) of either a <strong><em>categorical or numerical</em></strong> variable (x-axis). It gives information on the spread of data.</p>
+<p>Here is the framework of a box plot, with a normally distributed data set.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -1989,7 +1998,14 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </div>
 </div>
 </div>
+<p>The “<strong>box</strong>,” as shown below, represents three values: the 25th percentile, median (50th percentile), and the 75th percentile. Each horizontal bar corresponds to a number where that percentage of the data falls below. In other words, the horizontal bar closest to the x-axis represents where 25% of the data falls below, the bar in between the box is the median, or where 50% of the data fall below, and the furthest horizontal bar represents where 75% of the data falls below.</p>
+<p>The vertical lines that emerge from the box are called <strong>whiskers</strong>. The whisker closest to the x-axis represents the minimum calculated by subtracting three times the interquartile range (75th percentile-25th percentile) from the value for the 25th percentile. The furthest whisker from the x-axis represents the maximum calculated by subtracting three times the interquartile range from the 75th percentile.</p>
+<p>Data points that exist outside of these calculated minimum and maximum values exist as points separated from the plot, called outliers.</p>
+</section>
+<section id="penguin-data" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="penguin-data"><span class="header-section-number">2</span> Penguin Data</h2>
 <p>Using the penguin dataset, we can compare the flipper lengths (variable: flipper_length_mm) of the different species (variable: species) of penguins.</p>
+<p><em>Note:</em> We will call on the geom_boxplot( ) function when we code using ggplot</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>penguins, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x=</span>species, <span class="at">y=</span>flipper_length_mm))<span class="sc">+</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()<span class="sc">+</span></span>
@@ -2012,6 +2028,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
