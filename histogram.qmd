@@ -58,6 +58,4 @@ ggplot(data=penguins, mapping=aes(x=bill_depth_mm, na.rm=TRUE))+
 
 Now, create a histogram to see the distribution of chick weights (variable "weight") using the chickWeight dataset.
 
-```{webr-r}
 
-```

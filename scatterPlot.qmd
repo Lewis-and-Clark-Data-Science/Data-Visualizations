@@ -10,6 +10,7 @@ filters:
 #| label: loading data sets
 #| include: false 
 library(tidyverse)
+library(gt)
 
 #penguin data
 library(palmerpenguins)
@@ -72,7 +73,9 @@ Our line of regression can be represented in the equation y = -0.08502x + 20.885
 
 Here is the same scatter plot with the line of best fit:
 
-```{r, warning=FALSE}
+```{r}
+#| warning: FALSE
+
 ggplot(data=penguins, mapping=aes(x=bill_length_mm, y=bill_depth_mm))+
   geom_point()+
   geom_smooth(method="lm")

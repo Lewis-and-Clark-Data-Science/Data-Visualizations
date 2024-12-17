@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Home – Data Visualization Tutorials</title>
+<title>Histograms – Data Visualization Tutorials</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -114,7 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Home</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./histogram.html">Histograms</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -141,13 +141,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./histogram.html" class="sidebar-item-text sidebar-link">
+  <a href="./histogram.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Histograms</span></a>
   </div>
 </li>
@@ -185,13 +185,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-is-ggplot2" id="toc-what-is-ggplot2" class="nav-link active" data-scroll-target="#what-is-ggplot2"><span class="header-section-number">1</span> What is ggplot2?</a></li>
-  <li><a href="#installing-ggplot2" id="toc-installing-ggplot2" class="nav-link" data-scroll-target="#installing-ggplot2"><span class="header-section-number">2</span> Installing ggplot2</a></li>
-  <li><a href="#elements-of-a-graph" id="toc-elements-of-a-graph" class="nav-link" data-scroll-target="#elements-of-a-graph"><span class="header-section-number">3</span> Elements of a graph</a></li>
-  <li><a href="#what-makes-a-graph-good" id="toc-what-makes-a-graph-good" class="nav-link" data-scroll-target="#what-makes-a-graph-good"><span class="header-section-number">4</span> What makes a graph good?</a></li>
-  <li><a href="#types-of-data" id="toc-types-of-data" class="nav-link" data-scroll-target="#types-of-data"><span class="header-section-number">5</span> Types of data</a></li>
-  <li><a href="#data-in-this-tutorial" id="toc-data-in-this-tutorial" class="nav-link" data-scroll-target="#data-in-this-tutorial"><span class="header-section-number">6</span> Data in this tutorial</a></li>
-  <li><a href="#ggplot-code-framework" id="toc-ggplot-code-framework" class="nav-link" data-scroll-target="#ggplot-code-framework"><span class="header-section-number">7</span> ggplot Code Framework</a></li>
+  <li><a href="#what-is-a-histogram" id="toc-what-is-a-histogram" class="nav-link active" data-scroll-target="#what-is-a-histogram"><span class="header-section-number">1</span> What is a histogram?</a></li>
+  <li><a href="#penguin-data" id="toc-penguin-data" class="nav-link" data-scroll-target="#penguin-data"><span class="header-section-number">2</span> Penguin Data</a></li>
   </ul>
 </nav>
     </div>
@@ -200,7 +195,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Home</h1>
+<h1 class="title">Histograms</h1>
 </div>
 
 
@@ -217,90 +212,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="what-is-ggplot2" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="what-is-ggplot2"><span class="header-section-number">1</span> What is ggplot2?</h2>
-<p>The grammar of graphics package in R called ggplot2 is used to generate data visualizations. It breaks down the components of a plot, so you can adjust its aesthetics (size or intensity of plot points, colors, spatial arrangement of the elements) for a variety of graph types. Here, we will use ggplot2 to code:</p>
-<ul>
-<li><p>Histograms</p></li>
-<li><p>Box plots</p></li>
-<li><p>Scatter plots</p></li>
-<li><p>Bar plots</p></li>
-</ul>
+<section id="what-is-a-histogram" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="what-is-a-histogram"><span class="header-section-number">1</span> What is a histogram?</h2>
+<p>A histogram is a graph that compares the <strong><em>frequency</em></strong> (y-axis) of any <strong><em>categorical or numeric</em></strong> variable (x-axis). In other words, it measures how often a value from the x-axis appears in a data set.</p>
+<p>Here is the framework of a histogram:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="histogram_files/figure-html/generating frame plot-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
-<section id="installing-ggplot2" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="installing-ggplot2"><span class="header-section-number">2</span> Installing ggplot2</h2>
-<p>ggplot is a sub-package included in the tidyverse package. To install ggplot into your environment, run the code</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>To load ggplot into your environment, run</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>In this tutorial, don’t worry about installing tidyverse. However, you must install it on any of your personal projects.</p>
-</section>
-<section id="elements-of-a-graph" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="elements-of-a-graph"><span class="header-section-number">3</span> Elements of a graph</h2>
-<p>There are key features in all graphs, including:</p>
-<p><u>A title</u>: A good title should be the conclusion of your data analysis, or the relationship of your X and Y axes.</p>
-<p><u>Axes</u>: The X and Y axis should have their respective types of data. Each graph tutorial will guide you on what type of data goes on which axis.</p>
-<p><u>Colors</u>: Using colors can help guide your audience on what trend, if any, you want to emphasize. It is important to note that they should be used sparingly. While they may look pretty, having too many colors can be distracting of your data’s big picture.</p>
-<p><u>Legends</u>: To prevent the graph from being too busy, consider using a legend to explain your graph’s features.</p>
-</section>
-<section id="what-makes-a-graph-good" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="what-makes-a-graph-good"><span class="header-section-number">4</span> What makes a graph good?</h2>
-<p>Anyone should be able to look at a graph and understand your data without the context of your research. Take a step back from your code and ask yourself:</p>
-<p><em>What is this graph telling me? What is the relationship between the X and Y variables?</em></p>
-<p>The key to making a graph comprehensible is to make its story as clear as possible. Use the elements of your graph as tools to convey this story.</p>
-</section>
-<section id="types-of-data" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="types-of-data"><span class="header-section-number">5</span> Types of data</h2>
-<p>Identifying the types of data you have will help you identify the type of graph you’ll need. There are two types of data with two subcategories for each:</p>
-<p>Categorical: data that are arranged in groups</p>
-<blockquote class="blockquote">
-<p>Nominal: there is no priority or ranking in groups (e.g.&nbsp;yes or no, favorite colors)</p>
-</blockquote>
-<blockquote class="blockquote">
-<p>Ordinal: There is structure within the groups (e.g.&nbsp;small, medium, and large or cold, warm, and hot)</p>
-</blockquote>
-<p>Numerical: all things numbers</p>
-<blockquote class="blockquote">
-<p>Continuous: Decimal/fractional integers</p>
-</blockquote>
-<blockquote class="blockquote">
-<p>Discrete: Whole integers</p>
-</blockquote>
-</section>
-<section id="data-in-this-tutorial" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="data-in-this-tutorial"><span class="header-section-number">6</span> Data in this tutorial</h2>
-<p>We will be using three different data sets to hone in on our data science skills.</p>
-<p><strong>Palmer penguins</strong>: This data set gives insight on the bill length, bill depth, flipper length, body mass, sex, and year of data collection of various Antarctic penguins.</p>
-<p><strong>Chick weight</strong>: This data set tracks the weight of chicks in grams on different diets over 21 days. The diet types are as follows:</p>
-<blockquote class="blockquote">
-<p>Diet 1: Normal feed with a 10%&nbsp;protein replacement</p>
-</blockquote>
-<blockquote class="blockquote">
-<p>Diet 2: Normal feed with a 20%&nbsp;protein replacement</p>
-</blockquote>
-<blockquote class="blockquote">
-<p>Diet 3: Normal feed with a 40%&nbsp;protein replacement</p>
-</blockquote>
-<blockquote class="blockquote">
-<p>Diet 4: Normal feed, controlled group</p>
-</blockquote>
-<p><strong>Presidents</strong>: This data set tracks the quarterly approval ratings of US presidents from 1945-1975.</p>
-<p>Take a look at each data set by running their respective code chunks. Do you notice any trends? What variables interest you?</p>
-</section>
-<section id="ggplot-code-framework" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="ggplot-code-framework"><span class="header-section-number">7</span> ggplot Code Framework</h2>
-<p>In order to use ggplot, there here is a skeletal framework:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>dataset, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>xVariable, <span class="at">y=</span>yVariable))<span class="sc">+</span> <span class="fu">geom_typeOfPlot</span>()<span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Your title"</span>, <span class="at">x=</span><span class="st">"Name of X variable"</span>, <span class="at">y=</span><span class="st">"Your Y variable"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Let’s break down each part of this graph:</p>
-<ul>
-<li><p>First, are calling on the ggplot function.</p></li>
-<li><p>Then, we are asking R to look through our dataset.</p></li>
-<li><p>The mapping=aes is used to change elements in your graph that are in the “Tips and Tricks” section of this site.</p></li>
-<li><p>After that, we are explicitly telling R what variables we want on each axis.</p></li>
-<li><p>Next, we are specifying which type of graph we want R to make.</p></li>
-<li><p>Finally, we call on the labs function to rename our axes with our variable names, making sure to include units when necessary.</p></li>
-</ul>
-<p>Now, we are ready to start coding! Let’s learn about some plots we can make with R.</p>
+<section id="penguin-data" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="penguin-data"><span class="header-section-number">2</span> Penguin Data</h2>
+<p>In the penguin dataset, we can use a histogram to determine how often each bill depth (variable: bill_depth_mm) value appears in the dataset.</p>
+<p>Here, there is a deviation from the ggplot framework in the home page. “bins” is used to tell R how many bars to create in your histogram. You can change this number as needed. Ideally, you want to keep the bin number large enough to see patterns in your data , but small enough to keep outliers to a minimum.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>penguins, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>bill_depth_mm, <span class="at">na.rm=</span><span class="cn">TRUE</span>))<span class="sc">+</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins=</span><span class="dv">20</span>)<span class="sc">+</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Distribution of Antarctic Penguin Bill Depth"</span>, <span class="at">x=</span><span class="st">"Bill depth (mm)"</span>, <span class="at">y=</span><span class="st">"Frequency"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="histogram_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Now, create a histogram to see the distribution of chick weights (variable “weight”) using the chickWeight dataset.</p>
 
 
 </section>

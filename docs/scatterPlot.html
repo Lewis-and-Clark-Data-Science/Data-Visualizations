@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Bar Plots – Data Visualization Tutorials</title>
+<title>Scatter Plots – Data Visualization Tutorials</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,22 +57,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -114,9 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
-      Data Visualization Tutorials
-      </li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./scatterPlot.html">Scatter Plots</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -131,7 +129,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../">Data Visualization Tutorials</a> 
+      <a href="./">Data Visualization Tutorials</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -143,37 +141,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../histogram.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./histogram.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Histograms</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../boxPlot.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./boxPlot.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Box Plots</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../scatterPlot.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./scatterPlot.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Scatter Plots</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../barPlot.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./barPlot.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bar Plots</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tipsAndTricks.html" class="sidebar-item-text sidebar-link">
+  <a href="./tipsAndTricks.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tips and Tricks</span></a>
   </div>
 </li>
@@ -187,8 +185,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-is-a-bar-plot" id="toc-what-is-a-bar-plot" class="nav-link active" data-scroll-target="#what-is-a-bar-plot"><span class="header-section-number">1</span> What is a bar plot?</a></li>
-  <li><a href="#penguin-data" id="toc-penguin-data" class="nav-link" data-scroll-target="#penguin-data"><span class="header-section-number">2</span> Penguin data</a></li>
+  <li><a href="#what-is-a-scatter-plot" id="toc-what-is-a-scatter-plot" class="nav-link active" data-scroll-target="#what-is-a-scatter-plot"><span class="header-section-number">1</span> What is a scatter plot?</a></li>
+  <li><a href="#penguin-data" id="toc-penguin-data" class="nav-link" data-scroll-target="#penguin-data"><span class="header-section-number">2</span> Penguin Data</a></li>
+  <li><a href="#line-of-best-fit" id="toc-line-of-best-fit" class="nav-link" data-scroll-target="#line-of-best-fit"><span class="header-section-number">3</span> Line of best fit</a></li>
   </ul>
 </nav>
     </div>
@@ -197,7 +196,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Bar Plots</h1>
+<h1 class="title">Scatter Plots</h1>
 </div>
 
 
@@ -214,47 +213,80 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="what-is-a-bar-plot" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="what-is-a-bar-plot"><span class="header-section-number">1</span> What is a bar plot?</h2>
-<p>A bar plot compares a categorical variable (x-axis) to a numeric continuous variable (y-axis). Each bar represents the average <em>or</em> the frequency for each categorical variable. The bars can also be used to represent the counts, or number of occurences within a categorical variable.</p>
-<p>Here is the framework for a bar graph:</p>
-</section>
-<section id="penguin-data" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="penguin-data"><span class="header-section-number">2</span> Penguin data</h2>
-<p>Now, let’s see how the average bill depths of female and male Adelie penguins compare, using the penguins dataset.</p>
-<p><em>Note:</em> We will call on the geom_bar( ) function using ggplot. When we call this function, we use stat=“identity” to tell R we want our y-axis to represent the average bill depth, instead of counting how many sexes are represented for Adelie penguins in this data set.</p>
+<section id="what-is-a-scatter-plot" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="what-is-a-scatter-plot"><span class="header-section-number">1</span> What is a scatter plot?</h2>
+<p>A scatter plot compares both a numerical values on the x and y axes. They can be used to show trends over time, or to show the correlation between two variables.</p>
+<p>Here is the plot framework:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#first, we must group_by( ) and summarize ( ) the data on Adelie penguins</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>adeliePenguins<span class="ot">&lt;-</span> penguins <span class="sc">|&gt;</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species<span class="sc">==</span><span class="st">"Adelie"</span>)<span class="sc">|&gt;</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sex, <span class="at">na.rm=</span><span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">avgBillDepth =</span> <span class="fu">mean</span>(bill_depth_mm, <span class="at">na.rm=</span><span class="cn">TRUE</span>), <span class="at">sdBillDepth =</span> <span class="fu">sd</span>(bill_depth_mm, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`summarise()` has grouped output by 'sex'. You can override using the `.groups`
-argument.</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>adeliePenguins, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">y=</span>avgBillDepth, <span class="at">fill =</span> sex))<span class="sc">+</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">"identity"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="barPlot_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="scatterPlot_files/figure-html/generating frame plot-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>We can also add error bars to our graphs when we use them to represent averages. Error bars help represent the spread of data using a quantity known as the standard deviation. The standard deviation represents, on average, how much every data point is from the mean.</p>
-<p>The error bars extend from the top of the column plus and minus the standard deviation.</p>
-<p>Here is the same plot, with the error bars.</p>
-<p><em>Note</em>: To create error bars, call on the geom_errorbar( ) function, with a nested mapping=aes( ), as shown</p>
+</section>
+<section id="penguin-data" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="penguin-data"><span class="header-section-number">2</span> Penguin Data</h2>
+<p>In the penguin data set, we can examine the relationship between bill depth and bill length.</p>
+<p><em>Note</em>: To generate a scatter plot, we call on the geom_point( ) function with ggplot.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>adeliePenguins, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">y=</span>avgBillDepth, <span class="at">fill =</span> sex))<span class="sc">+</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">"identity"</span>)<span class="sc">+</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">ymin=</span>avgBillDepth<span class="sc">-</span>sdBillDepth, <span class="at">ymax=</span>avgBillDepth<span class="sc">+</span>sdBillDepth))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>penguins, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>bill_length_mm, <span class="at">y=</span>bill_depth_mm))<span class="sc">+</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="barPlot_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="scatterPlot_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="line-of-best-fit" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="line-of-best-fit"><span class="header-section-number">3</span> Line of best fit</h2>
+<p>So we have these dots, but how do we know if one variable <em>really</em> is related to another? We can use the Pearson correlation coeffcient, a measure of the linear relationship of two numeric variables. A perfect direct correlation would have a slope of 1, and a perfect indirect correlation would have a slope of -1.</p>
+<p>In order to perform regression analysis, or how the x and y variables are related, we can use a linear model equation y=mx + b, where y is a function of the change in a given y-value times its respective x-value, plus the y-intercept, or where the y-value crosses the y=0 axis.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>billDepthAndLengthModel<span class="ot">=</span><span class="fu">lm</span>(<span class="at">data=</span>penguins, <span class="at">formula=</span>bill_depth_mm<span class="sc">~</span>bill_length_mm)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(billDepthAndLengthModel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = bill_depth_mm ~ bill_length_mm, data = penguins)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-4.1381 -1.4263  0.0164  1.3841  4.5255 
+
+Coefficients:
+               Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)    20.88547    0.84388  24.749  &lt; 2e-16 ***
+bill_length_mm -0.08502    0.01907  -4.459 1.12e-05 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.922 on 340 degrees of freedom
+  (2 observations deleted due to missingness)
+Multiple R-squared:  0.05525,   Adjusted R-squared:  0.05247 
+F-statistic: 19.88 on 1 and 340 DF,  p-value: 1.12e-05</code></pre>
+</div>
+</div>
+<p>While this output is intimidating, we only need two numbers for our purposes: the estimate intercept (b) and the slope (m), located right below that number.</p>
+<p>Our line of regression can be represented in the equation y = -0.08502x + 20.88574</p>
+<p>Here is the same scatter plot with the line of best fit:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>penguins, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>bill_length_mm, <span class="at">y=</span>bill_depth_mm))<span class="sc">+</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="scatterPlot_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>

@@ -60,19 +60,15 @@ Identifying the types of data you have will help you identify the type of graph 
 
 Categorical: data that are arranged in groups
 
-```         
-Nominal: there is no priority or ranking in groups (e.g. yes or no, favorite colors)
+> Nominal: there is no priority or ranking in groups (e.g. yes or no, favorite colors)
 
-Ordinal: There is structure within the groups (e.g. small, medium, and large or cold, warm, and hot)
-```
+> Ordinal: There is structure within the groups (e.g. small, medium, and large or cold, warm, and hot)
 
 Numerical: all things numbers
 
-```         
-Continuous: Decimal/fractional integers
+> Continuous: Decimal/fractional integers
 
-Discrete: Whole integers
-```
+> Discrete: Whole integers
 
 ## Data in this tutorial
 
@@ -80,31 +76,18 @@ We will be using three different data sets to hone in on our data science skills
 
 **Palmer penguins**: This data set gives insight on the bill length, bill depth, flipper length, body mass, sex, and year of data collection of various Antarctic penguins.
 
+
 **Chick weight**: This data set tracks the weight of chicks in grams on different diets over 21 days. The diet types are as follows:
 
-```         
-Diet 1: Normal feed with a 10% protein replacement
+> Diet 1: Normal feed with a 10% protein replacement
 
-Diet 2: Normal feed with a 20% protein replacement
+> Diet 2: Normal feed with a 20% protein replacement
 
-Diet 3: Normal feed with a 40% protein replacement
+> Diet 3: Normal feed with a 40% protein replacement
 
-Diet 4: Normal feed, controlled group
-```
-
-```{r}
-#gt chick weights
-```
+> Diet 4: Normal feed, controlled group
 
 **Presidents**: This data set tracks the quarterly approval ratings of US presidents from 1945-1975.
-
-```{r}
-#select president columns
-```
-
-```{r}
-#gt presidents
-```
 
 Take a look at each data set by running their respective code chunks. Do you notice any trends? What variables interest you?
 

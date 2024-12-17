@@ -30,12 +30,12 @@ A bar plot compares a categorical variable (x-axis) to a numeric continuous vari
 
 Here is the framework for a bar graph:
 
-```{r}
+{r}
 #| label: generating frame plot
 #| warning: false
 #| echo: false
 
-```
+
 
 ## Penguin data
 Now, let's see how the average bill depths of female and male Adelie penguins compare, using the penguins dataset.
@@ -43,14 +43,15 @@ Now, let's see how the average bill depths of female and male Adelie penguins co
 *Note:* We will call on the geom_bar( ) function using ggplot. When we call this function, we use stat="identity" to tell R we want our y-axis to represent the average bill depth, instead of counting how many sexes are represented for Adelie penguins in this data set.
 
 ```{r}
-#first, we must group_by( ) and summarize ( ) the data on Adelie penguins
+#first, we must filter the Penguin data to only include Adelie penguins and exclude NA values from the sex xolukn
 adeliePenguins<- penguins |>
-  filter(species=="Adelie")|>
-  group_by(sex, na.rm=TRUE) |>
+  filter(species=="Adelie", sex!="")|>
+  group_by(sex) |>
   summarize(avgBillDepth = mean(bill_depth_mm, na.rm=TRUE), sdBillDepth = sd(bill_depth_mm, na.rm=TRUE))
   
 ggplot(data=adeliePenguins, mapping = aes(x = sex, y=avgBillDepth, fill = sex))+
-  geom_bar(stat="identity")
+  geom_bar(stat="identity")+
+  labs(title="Average Bill depth for Antarctic Penguin Species", x="Sex of penguin", y="Average bill depth (mm)")
 ```
 
 We can also add error bars to our graphs when we use them to represent averages. Error bars help represent the spread of data using a quantity known as the standard deviation. The standard deviation represents, on average, how much every data point is from the mean.
