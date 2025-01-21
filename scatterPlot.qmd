@@ -57,9 +57,18 @@ ggplot(data=penguins, mapping=aes(x=bill_length_mm, y=bill_depth_mm))+
 
 ## Line of best fit
 
-So we have these dots, but how do we know if one variable *really* is related to another? We can use the Pearson correlation coeffcient, a measure of the linear relationship of two numeric variables. A perfect direct correlation would have a slope of 1, and a perfect indirect correlation would have a slope of -1.
+So we have these dots, but how do we know the relationship between x and y-variables?
 
 In order to perform regression analysis, or how the x and y variables are related, we can use a linear model equation y=mx + b, where y is a function of the change in a given y-value times its respective x-value, plus the y-intercept, or where the y-value crosses the y=0 axis.
+
+All this information can be found using this skeletal formula:
+
+``` r
+variable=lm(data = df, fomula = y-variable ~ x-variable)
+summary(variable)
+```
+
+Here is the skeletal fomula applied to our scatter plot of the penguin bill depth vs. bill length.
 
 ```{r, warning=FALSE}
 billDepthAndLengthModel=lm(data=penguins, formula=bill_depth_mm~bill_length_mm)
@@ -80,3 +89,82 @@ ggplot(data=penguins, mapping=aes(x=bill_length_mm, y=bill_depth_mm))+
   geom_point()+
   geom_smooth(method="lm")
 ```
+
+## Chick Data
+
+Using the ChickWeight data set, that shows the the change in weight (variable: "weight") over time in days (variable: "Time") for chick 4.
+
+First, we must filter the ChickWeight data to include only data from chick 4 by creating a new variable, "chick4".
+
+```{r}
+#| include: false
+chick4<-ChickWeight %>%
+  filter(Chick == 4)
+```
+
+```{webr-r}
+#| exercise: ex3
+___<-ChickWeight %>%
+  filter(Chick == ___)
+```
+
+Now let's create a scatter plot of chick 4's weight over time. Don't worry about adding a title or axes labels. Make sure to add a line of best fit!
+
+::: panel-tabset
+## Code editor
+
+```{webr-r}
+#Type your code here
+```
+
+## Hint
+
+R is case sensitive! The data set is named "ChickWeight" and the variables are "Time" and "weight". Which variable belongs on the x-axis? Which variable belongs on the y-axis.
+
+## Answer
+
+```{r}
+#| eval: false
+ggplot(data=chick4, mapping=aes(x=Time, y=weight))+
+  geom_point()+
+  geom_smooth(method=lm)
+```
+:::
+
+Let's generate the line of best fit summary table for the chick4 data, using the model code from above.
+
+```{r}
+#| include: false
+chick4Summary=lm(data = chick4, formula = weight~Time)
+summary(chick4Summary)
+```
+
+```{webr-r}
+#| exercise: ex4
+chick4Summary=lm(data = ___ , formula = ___~___)
+summary(chick4Summary)
+```
+
+Write the linear regression equation (y=mx+b) based on the summary model.
+
+::: panel-tabset
+## Code editor
+
+```{webr-r}
+#Type your code here
+```
+
+## Hint
+
+Make sure you have the slope and y-intercept in their respective spots!
+
+## Answer
+
+```{webr-r}
+#Type your code here
+#| eval: false
+y=6.0886x+32.8657
+```
+:::
+
+This equation shows the relationship between the x-variable (time) and the y-variable (weight) for chick 4 from the ChickWeight data set.

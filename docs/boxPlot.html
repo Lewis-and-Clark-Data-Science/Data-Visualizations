@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -69,10 +69,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-3d7876ccade3f6f99da27567822314b2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -216,6 +216,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="1" class="anchored" data-anchor-id="what-is-a-box-plot"><span class="header-section-number">1</span> What is a box plot</h2>
 <p>A box plot is a graph that shows a <strong><em>numeric</em></strong> summary (y-axis) of either a <strong><em>categorical or numerical</em></strong> variable (x-axis). It gives information on the spread of data.</p>
 <p>Here is the framework of a box plot, with a normally distributed data set.</p>
+<p><img src="normalPlot.png" class="img-fluid"></p>
+<p>The “<strong>box</strong>,” as shown below, represents three values: the 25th percentile (Q1), median (Q2), and the 75th percentile (Q3). Each horizontal bar corresponds to a number where that percentage of the data falls below, as shown. The box contains 50% of the data, known as the interquartile range. This value is calculated by subtracting Q1 from Q3.</p>
+<p>The vertical lines that emerge from the box are called <strong>whiskers</strong>. The whisker closest to the x-axis represents the minimum calculated by subtracting 1.5 times the interquartile range from the value for Q1. The furthest whisker from the x-axis represents the maximum calculated by subtracting 1.5 times the interquartile range from Q3.</p>
+<p>Here is the same data plotted as a scatter plot and a box plot. “Index” refers to the position on the list from which the random numbers were generated. In short, a boxplot gives a summary as to where your data lie, or how the data is spread.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -225,9 +229,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>The “<strong>box</strong>,” as shown below, represents three values: the 25th percentile, median (50th percentile), and the 75th percentile. Each horizontal bar corresponds to a number where that percentage of the data falls below. In other words, the horizontal bar closest to the x-axis represents where 25%&nbsp;of the data falls below, the bar in between the box is the median, or where 50%&nbsp;of the data fall below, and the furthest horizontal bar represents where 75%&nbsp;of the data falls below.</p>
-<p>The vertical lines that emerge from the box are called <strong>whiskers</strong>. The whisker closest to the x-axis represents the minimum calculated by subtracting three times the interquartile range (75th percentile-25th percentile) from the value for the 25th percentile. The furthest whisker from the x-axis represents the maximum calculated by subtracting three times the interquartile range from the 75th percentile.</p>
-<p>Data points that exist outside of these calculated minimum and maximum values exist as points separated from the plot, called outliers.</p>
 </section>
 <section id="penguin-data" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="penguin-data"><span class="header-section-number">2</span> Penguin Data</h2>
@@ -245,7 +246,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>For the Adelie penguins, there are outliers on either side of the whiskers. These are values fall short/exceed the whisker value calculation.</p>
+<p>For the Adelie penguins, there are <strong>outliers</strong> on either side of the whiskers. These are values fall short/exceed the whisker value calculation.</p>
 <p>Now, compare the flipper lengths (variable: flipper_length_mm) of the different sexes (variable: sex) of penguins</p>
 
 
@@ -334,8 +335,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -446,7 +445,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

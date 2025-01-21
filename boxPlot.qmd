@@ -24,28 +24,39 @@ data("presidents")
 presidents<-presidents
 ```
 
+```{r}
+#| include: false
+
+penguins<-na.omit(penguins)
+```
 ## What is a box plot
 
 A box plot is a graph that shows a ***numeric*** summary (y-axis) of either a ***categorical or numerical*** variable (x-axis). It gives information on the spread of data.
 
 Here is the framework of a box plot, with a normally distributed data set.
 
+![](normalPlot.png)
+
+The "**box**," as shown below, represents three values: the 25th percentile (Q1), median (Q2), and the 75th percentile (Q3). Each horizontal bar corresponds to a number where that percentage of the data falls below, as shown. The box contains 50% of the data, known as the interquartile range. This value is calculated by subtracting Q1 from Q3.
+
+The vertical lines that emerge from the box are called **whiskers**. The whisker closest to the x-axis represents the minimum calculated by subtracting 1.5 times the interquartile range from the value for Q1. The furthest whisker from the x-axis represents the maximum calculated by subtracting 1.5 times the interquartile range from Q3.
+
+Here is the same data plotted as a scatter plot and a box plot. "Index" refers to the position on the list from which the random numbers were generated. In short, a boxplot gives a summary as to where your data lie, or how the data is spread.
+
 ```{r}
 #| label: generating frame plot
 #| warning: false
 #| echo: false
-data <- rnorm(100, mean = 50, sd = 10)
 
-ggplot(data.frame(Value = data), aes(y = Value)) +
-  geom_boxplot() +
-  labs(title = "Sample Box and Whisker Plot", y = "Numeric continous", x = " Categorical ordinal/nominal")
+data<-rnorm(100, mean = 50, sd = 10)  
+df <- data.frame(value = data)
+
+ggplot(df, aes(x = factor(1), y = value)) + 
+  geom_boxplot(aes(x = factor(1)), width = 0.2, outlier.colour = "blue", outlier.shape = 1) + 
+  geom_jitter(color = "blue", width = 0.1, height = 0.1, alpha = 0.4) + 
+  labs(title = "Scatter Plot and Boxplot of Normally Distributed Data", x = "Index/Categorical data", y = "Numeric continuous") +
+  theme(axis.title.x = element_blank(), axis.text.x = element_blank())
 ```
-
-The "**box**," as shown below, represents three values: the 25th percentile, median (50th percentile), and the 75th percentile. Each horizontal bar corresponds to a number where that percentage of the data falls below. In other words, the horizontal bar closest to the x-axis represents where 25%\ of the data falls below, the bar in between the box is the median, or where 50%\ of the data fall below, and the furthest horizontal bar represents where 75%\ of the data falls below.
-
-The vertical lines that emerge from the box are called **whiskers**. The whisker closest to the x-axis represents the minimum calculated by subtracting three times the interquartile range (75th percentile-25th percentile) from the value for the 25th percentile. The furthest whisker from the x-axis represents the maximum calculated by subtracting three times the interquartile range from the 75th percentile.
-
-Data points that exist outside of these calculated minimum and maximum values exist as points separated from the plot, called outliers.
 
 ## Penguin Data
 
@@ -61,8 +72,59 @@ ggplot(data=penguins, mapping = aes(x=species, y=flipper_length_mm))+
   labs(x="Species of Antarctic penguin", y="Flipper length (mm)", title = "Species of Antarctic penguins have different flipper lengths")
 ```
 
-For the Adelie penguins, there are outliers on either side of the whiskers. These are values fall short/exceed the whisker value calculation.
+For the Adelie penguins, there are **outliers** on either side of the whiskers. These are values fall short/exceed the whisker value calculation.
 
-Now, compare the flipper lengths (variable: flipper_length_mm) of the different sexes (variable: sex) of penguins
+This boxplot shows us that Gentoo penguins generally have a larger flipper length in millimeters than Chinstrap and Adelie penguins.
+
+Now, compare the flipper lengths (variable: flipper_length_mm) of the different sexes (variable: sex) of penguins. Don't worry about adding a title or axes labels!
+
+::: panel-tabset
+## Code editor
+
+```{webr-r}
+ggplot(data=___, mapping = aes(x=___, y=___))+
+  geom_boxplot()
+```
+
+## Hint
+
+R is case sensitive! The data set is named "penguins" and the variables are "body_mass_g" and "sex". Which variable is categorical (x-variable) and which variable is numerical (y-variable)?
+
+## Answer
+
+```{r}
+#| eval: false
+ggplot(data=penguins, mapping = aes(x=sex, y=body_mass_g))+
+  geom_boxplot()
+```
+Which sex from the penguins data set tend to have a larger body mass in grams?
+:::
+
+## Chick Data
+
+Using the ChickWeight data, show the spread of the weight (variable: "weight") of the chicks on different diets (variable: "Diet"). 
+
+::: panel-tabset
+## Code editor
+
+```{webr-r}
+#Type your code here
+
+```
+
+## Hint
+
+Make sure you have the correct x and y-variables! The x-variable is a categorical variable, and the y-variable is a numerical variable.
+
+## Answer
+
+```{r}
+#| eval: false
+ggplot(data=ChickWeight, mapping = aes(x=Diet, y=weight))+
+  geom_boxplot()
+```
+
+This chick data shows that there is not much of a difference in the spread of data across the four chick diets.
+:::
 
 

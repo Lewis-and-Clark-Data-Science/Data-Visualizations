@@ -6,6 +6,17 @@ filters:
   - webr
 ---
 
+```{r}
+#| label: loading packages
+#| warning: false
+#| echo: false
+library(tidyverse)
+library(DT)
+library(palmerpenguins)
+library(htmltools)
+
+```
+
 ## What is ggplot2?
 
 The grammar of graphics package in R called ggplot2 is used to generate data visualizations. It breaks down the components of a plot, so you can adjust its aesthetics (size or intensity of plot points, colors, spatial arrangement of the elements) for a variety of graph types. Here, we will use ggplot2 to code:
@@ -58,11 +69,10 @@ The key to making a graph comprehensible is to make its story as clear as possib
 
 Identifying the types of data you have will help you identify the type of graph you’ll need. There are two types of data with two subcategories for each:
 
-Categorical: data that are arranged in groups
+Categorical: data arranged in groups
+> Nominal: No priority or ranking (e.g., yes or no, favorite colors)
 
-> Nominal: there is no priority or ranking in groups (e.g. yes or no, favorite colors)
-
-> Ordinal: There is structure within the groups (e.g. small, medium, and large or cold, warm, and hot)
+> Ordinal: Structure within groups (e.g., small, medium, large; cold, warm, hot)
 
 Numerical: all things numbers
 
@@ -76,6 +86,25 @@ We will be using three different data sets to hone in on our data science skills
 
 **Palmer penguins**: This data set gives insight on the bill length, bill depth, flipper length, body mass, sex, and year of data collection of various Antarctic penguins.
 
+```{r}
+#| label: scrollable table
+#| warning: false
+#| echo: false
+
+# Create a scrollable table
+datatable(
+  penguins,                              # The dataset from the palmerpenguins package
+  options = list(
+    scrollX = TRUE,                      # Enable horizontal scrolling
+    scrollY = "400px",                   # Set height for vertical scrolling
+    pageLength = 5,                      # Number of rows to show per page
+    autoWidth = TRUE                     # Automatically adjust column widths
+  ),
+  rownames = FALSE,                      # Hide row names
+  caption = "Palmer Penguins Dataset"    # Add a caption to the table
+)
+
+```
 
 **Chick weight**: This data set tracks the weight of chicks in grams on different diets over 21 days. The diet types are as follows:
 
@@ -87,9 +116,30 @@ We will be using three different data sets to hone in on our data science skills
 
 > Diet 4: Normal feed, controlled group
 
-**Presidents**: This data set tracks the quarterly approval ratings of US presidents from 1945-1975.
+```{r}
+#| label: scrollable chick framework
+#| warning: false
+#| echo: false
 
-Take a look at each data set by running their respective code chunks. Do you notice any trends? What variables interest you?
+datatable(
+  ChickWeight,                          # Use ChickWeight dataset
+  options = list(
+    scrollX = TRUE,                     # Enable horizontal scrolling
+    scrollY = "400px",                  # Enable vertical scrolling with height
+    pageLength = 10,                    # Show 10 rows per page
+    autoWidth = TRUE,                   # Automatically adjust column widths
+    columnDefs = list(list(width = '200px', targets = "_all")) # Set minimum width for columns
+  ),
+  rownames = FALSE,                     # Hide row names
+  caption = "Chick Weights Dataset"     # Add a caption
+)
+
+
+```
+
+
+
+Take a look at each data set. Do you notice any trends? What variables interest you?
 
 ## ggplot Code Framework
 

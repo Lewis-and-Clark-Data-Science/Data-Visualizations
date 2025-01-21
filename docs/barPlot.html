@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -69,10 +69,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-3d7876ccade3f6f99da27567822314b2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -216,40 +216,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="1" class="anchored" data-anchor-id="what-is-a-bar-plot"><span class="header-section-number">1</span> What is a bar plot?</h2>
 <p>A bar plot compares a categorical variable (x-axis) to a numeric continuous variable (y-axis). Each bar represents the average <em>or</em> the frequency for each categorical variable. The bars can also be used to represent the counts, or number of occurences within a categorical variable.</p>
 <p>Here is the framework for a bar graph:</p>
-<p>{r} #| label: generating frame plot #| warning: false #| echo: false</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="barPlot_files/figure-html/generating frame plot-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="penguin-data" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="penguin-data"><span class="header-section-number">2</span> Penguin data</h2>
 <p>Now, let’s see how the average bill depths of female and male Adelie penguins compare, using the penguins dataset.</p>
 <p><em>Note:</em> We will call on the geom_bar( ) function using ggplot. When we call this function, we use stat=“identity” to tell R we want our y-axis to represent the average bill depth, instead of counting how many sexes are represented for Adelie penguins in this data set.</p>
+<p>We will also use the “fill=” argument. It visually differentiates the bar graph based on the variable specified by color. This is further explained in the “Tips and Tricks” subsection.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#first, we must group_by( ) and summarize ( ) the data on Adelie penguins</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>adeliePenguins<span class="ot">&lt;-</span> penguins <span class="sc">|&gt;</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species<span class="sc">==</span><span class="st">"Adelie"</span>)<span class="sc">|&gt;</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sex, <span class="at">na.rm=</span><span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">avgBillDepth =</span> <span class="fu">mean</span>(bill_depth_mm, <span class="at">na.rm=</span><span class="cn">TRUE</span>), <span class="at">sdBillDepth =</span> <span class="fu">sd</span>(bill_depth_mm, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`summarise()` has grouped output by 'sex'. You can override using the `.groups`
-argument.</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>adeliePenguins, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">y=</span>avgBillDepth, <span class="at">fill =</span> sex))<span class="sc">+</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">"identity"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="barPlot_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>We can also add error bars to our graphs when we use them to represent averages. Error bars help represent the spread of data using a quantity known as the standard deviation. The standard deviation represents, on average, how much every data point is from the mean.</p>
-<p>The error bars extend from the top of the column plus and minus the standard deviation.</p>
-<p>Here is the same plot, with the error bars.</p>
-<p><em>Note</em>: To create error bars, call on the geom_errorbar( ) function, with a nested mapping=aes( ), as shown</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>adeliePenguins, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">y=</span>avgBillDepth, <span class="at">fill =</span> sex))<span class="sc">+</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">"identity"</span>)<span class="sc">+</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">ymin=</span>avgBillDepth<span class="sc">-</span>sdBillDepth, <span class="at">ymax=</span>avgBillDepth<span class="sc">+</span>sdBillDepth))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#first, we must filter the Penguin data to only include Adelie penguins and exclude NA values from the sex column</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>femalePenguins<span class="ot">&lt;-</span> penguins <span class="sc">|&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex<span class="sc">==</span><span class="st">"female"</span>)<span class="sc">|&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species) <span class="sc">|&gt;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">avgBodyMass =</span> <span class="fu">mean</span>(body_mass_g, <span class="at">na.rm=</span><span class="cn">TRUE</span>), <span class="at">sdBodyMass =</span> <span class="fu">sd</span>(body_mass_g, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>femalePenguins, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y=</span>avgBodyMass, <span class="at">fill=</span>species))<span class="sc">+</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">"identity"</span>)<span class="sc">+</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Average Body Mass for Female Antarctic Penguin Species"</span>, <span class="at">x=</span><span class="st">"Penguin species"</span>, <span class="at">y=</span><span class="st">"Average body mass (g)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -258,6 +249,26 @@ argument.</code></pre>
 </div>
 </div>
 </div>
+<p>While the averages look different, we cannot be sure of how different they are. Averages are sensitive to outliers. For example, there is a possibility that most female Gentoo penguins have a body mass of 3000g, but there are a few penguins that exceed this value greatly, increasing the mean from the most common body mass.</p>
+<p>To avoid this, we can add error bars to our bar graphs when representing averages. Error bars help represent the spread of data using a quantity known as the standard deviation. The standard deviation represents, on average, how much every data point is from the mean.</p>
+<p>The error bars give a better gague on how similar groups are; if the error bars overlap, they are likely not statistically different. If the error bars do not overlap, they are likely statistically different. Further statistical analyses must be performed to confirm if they are statistically different.</p>
+<p>The error bars extend from the top of the column plus and minus the standard deviation. Here is the same plot, with the error bars and the equations to calculate them.</p>
+<p><em>Note</em>: To create error bars, call on the geom_errorbar( ) function, with a nested mapping=aes( ), as shown</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>femalePenguins, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y=</span>avgBodyMass, <span class="at">fill =</span> species))<span class="sc">+</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">"identity"</span>)<span class="sc">+</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">ymin=</span>avgBodyMass<span class="sc">-</span>sdBodyMass, <span class="at">ymax=</span>avgBodyMass<span class="sc">+</span>sdBodyMass))<span class="sc">+</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Average Body Mass for Female Antarctic Penguin Species"</span>, <span class="at">x=</span><span class="st">"Penguin species"</span>, <span class="at">y=</span><span class="st">"Average body mass (g)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="barPlot_files/figure-html/eval- false-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><img src="bodymass.png" class="img-fluid"> The error bars for the female Adelie and Chinstrap overlap, so they are likely not statistically different. However, the error bars for the Gentoo penguins have no overlap with the other Antarctic penguin species, so Gentoo penguins likely have a statistically signifcant difference in mass from other Antartic penguins in this dataset.</p>
+<p>Now, using the ChickWeights data set, generate a plot that shows the average weight (variable: weight) of each of the four chicks (variable: chick).</p>
 
 
 </section>
@@ -345,8 +356,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -457,7 +466,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

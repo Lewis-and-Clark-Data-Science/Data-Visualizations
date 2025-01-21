@@ -4,11 +4,19 @@ format: html
 engine: knitr
 filters:
   - webr
+include-in-header:
+  file: checker.js
 ---
+
+```{r}
+#| include: false
+source("checker.R")
+```
 
 ```{r}
 #| label: loading data sets
 #| include: false 
+
 library(tidyverse)
 
 #penguin data
@@ -17,11 +25,8 @@ penguins<- palmerpenguins::penguins
 
 #Chick weight data
 data("ChickWeight")
-chickWeight<-ChickWeight
+ChickWeight<-ChickWeight
 
-#president data
-data("presidents")
-presidents<-presidents
 ```
 
 ## What is a histogram?
@@ -56,6 +61,74 @@ ggplot(data=penguins, mapping=aes(x=bill_depth_mm, na.rm=TRUE))+
 
 ```
 
-Now, create a histogram to see the distribution of chick weights (variable "weight") using the chickWeight dataset.
+This data is pretty noisy. There appears to be three peaks. There are three species of penguins in this data set. Perhaps each peak represents each species?
 
+Let's see if there is a trend in **Gentoo** penguins.
 
+First, we must filter the penguin data to include only Gentoo penguins by creating a new variable, "gentooPenguins".
+
+```{r}
+#| include: false
+gentooPenguins<-penguins %>%
+  filter(species == "Gentoo")
+```
+
+```{webr-r}
+#| exercise: ex1
+___<-penguins %>%
+  filter(species == "___")
+```
+
+Now let's create a histogram of the distribution of Gentoo penguin bill depths. Don't worry about adding a title or axes labels!
+
+::: panel-tabset
+## Code editor
+
+```{webr-r}
+ggplot(data=___, mapping=aes(x=___, na.rm=TRUE))+
+  geom_histogram(bins=20)
+
+```
+
+## Hint
+
+R is case sensitive! The data set is named "gentooPenguins" and the variable is "bill_depth_mm".
+
+## Answer
+
+```{r}
+#| eval: false
+ggplot(data=gentooPenguins, mapping=aes(x=bill_depth_mm, na.rm=TRUE))+
+  geom_histogram(bins=20)
+```
+
+This data still appears to show no clear pattern. Perhaps there is no trend in bill depth for Gentoo penguins in the data provided.
+:::
+
+## Chick Data
+
+Let's try using the ChickWeight data set! Using the model code above, create a histogram to see the distribution of chick weights (variable "weight") using the ChickWeight dataset.
+
+::: panel-tabset
+## Code editor
+
+```{webr-r}
+#Type your code here
+```
+
+## Hint
+
+R is case sensitive! The data set is named "ChickWeight" and the variable is "weight".
+
+## Answer
+
+```{r}
+#| eval: false
+ggplot(data=ChickWeight, mapping=aes(x=weight, na.rm=TRUE))+
+  geom_histogram(bins=20)
+```
+:::
+
+How is the data distributed? Are there more chicks that fall into a weight interval to the **left** of the graph, to the **right** of the graph, or is it **normally distributed**?
+
+The histogram is **left** skewed, meaning throughout the data, most chicks' weights fall between 0-100g.

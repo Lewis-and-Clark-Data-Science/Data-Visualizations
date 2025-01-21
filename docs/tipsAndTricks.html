@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -69,10 +69,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-3d7876ccade3f6f99da27567822314b2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -206,17 +206,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>Here are some tools that can improve your data visualizations</p>
-<p><strong>Colors</strong> can be used as a tool to emphasize an idea on a graph. To change the color of the points/lines on your graph, select the color you want using *color=“_”* in the function specifying the graph type. For example, to change the default black points in a scatter plot to blue,</p>
+<p><strong>Colors</strong> can be used as a tool to emphasize an idea on a graph. To change the color of the points/lines on your graph, select the color you want using <u><em>color=” “</em></u> in the function specifying the graph type. For example, to change the default black points in a scatter plot to blue,</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>dataset, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>xVariable, <span class="at">y=</span>yVariable))<span class="sc">+</span> </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_point</span>(<span class="at">color=</span><span class="st">"blue"</span>)<span class="er">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>There are many colors to choose from, but it is important to consider how your audience would perceive them. Are they bright and straining? Are they accessible to someone who has visual impairments?</p>
-<p><strong>Facet wrap</strong> is a function that can display multiple data visualizations at once. It is used to show graphs with the same axes with a change in a categorical variable. For example, we can compare the weights of all three Antarctic penguin species in one data visualization. To do this, call on the facet_wrap( ) function and inside the parentheses, specify the variable</p>
+<p><strong>Fill</strong> is an argument that is useful in generating a plot with multiple ___.</p>
+<p><strong>Facet wrap</strong> is a function that can display multiple data visualizations at once. It is used to show graphs with the same axes with a change in a categorical variable. For example, we can compare the weights of all three Antarctic penguin species in one data visualization. It’s useful when trying to compare data, without creating a visually busy graph.</p>
+<p>To do this, call on the facet_wrap( ) function and inside the parentheses, specify the categorical variable using a tilde (~).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>penguins, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>bill_length_mm, <span class="at">y=</span>body_mass_g))<span class="sc">+</span> <span class="fu">geom_point</span>()<span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>species)<span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Bill length by body mass for Antarctic Penguin Species"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 2 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>penguins, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>bill_length_mm, <span class="at">y=</span>body_mass_g))<span class="sc">+</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>species)<span class="sc">+</span> </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Bill length by body mass for Antarctic Penguin Species"</span>, <span class="at">x=</span><span class="st">"Bill length (mm)"</span>, <span class="at">y=</span><span class="st">"Body mass (g)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -311,8 +312,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -423,7 +422,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
