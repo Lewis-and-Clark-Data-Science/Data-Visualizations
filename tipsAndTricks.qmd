@@ -48,3 +48,34 @@ ggplot(data=penguins, mapping=aes(x=bill_length_mm, y=body_mass_g))+
   labs(title="Bill length by body mass for Antarctic Penguin Species", x="Bill length (mm)", y="Body mass (g)")
 
 ```
+
+As mentioned, **error bars** are a helpful tool to show if different categorical variables are distinct from one another. You can edit the size of its size and color by specifying these within the geom_errorbar( ) function. Below is the same code chunk from the Bar Plot tutorial, with smaller error bar widths.
+
+```{r}
+#| include: false
+
+femalePenguins<- penguins |>
+  filter(sex=="female")|>
+  group_by(species) |>
+  summarize(avgBodyMass = mean(body_mass_g, na.rm=TRUE), sdBodyMass = sd(body_mass_g, na.rm=TRUE))
+```
+
+```{r}
+ggplot(data=femalePenguins, mapping = aes(x = species, y=avgBodyMass, fill = species))+
+  geom_bar(stat="identity")+
+  geom_errorbar(mapping=aes(ymin=avgBodyMass-sdBodyMass, ymax=avgBodyMass+sdBodyMass), width = 0.5)+
+  labs(title="Average Body Mass for Female Antarctic Penguin Species", x="Penguin species", y="Average body mass (g)")
+```
+
+You can change the boldness of the error bars by instead using the "size=__" argument, or changing the color using "color=__". Try editing the chunk above to create your own plot!
+
+```{r}
+ggplot(data=femalePenguins, mapping = aes(x = species, y=avgBodyMass, fill = species))+
+  geom_bar(stat="identity")+
+  geom_errorbar(mapping=aes(ymin=avgBodyMass-sdBodyMass, ymax=avgBodyMass+sdBodyMass), width = 0.5)+
+  labs(title="Average Body Mass for Female Antarctic Penguin Species", x="Penguin species", y="Average body mass (g)")+
+```
+
+
+
+

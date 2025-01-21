@@ -68,13 +68,14 @@ variable=lm(data = df, fomula = y-variable ~ x-variable)
 summary(variable)
 ```
 
-Here is the skeletal fomula applied to our scatter plot of the penguin bill depth vs. bill length.
+Here is the skeletal fomula applied to our scatter plot of the penguin bill depth vs. bill length. Below is the output: the summary statistics associated with this linear model.
 
-```{r, warning=FALSE}
+```{r, eval=FALSE}
 billDepthAndLengthModel=lm(data=penguins, formula=bill_depth_mm~bill_length_mm)
 
 summary(billDepthAndLengthModel)
 ```
+![](summaryStat.png)
 
 While this output is intimidating, we only need two numbers for our purposes: the estimate intercept (b) and the slope (m), located right below that number.
 

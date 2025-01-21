@@ -54,13 +54,17 @@ Now, let's see how the average bill depths of female and male Adelie penguins co
 
 We will also use the "fill=" argument. It visually differentiates the bar graph based on the variable specified by color. This is further explained in the "Tips and Tricks" subsection.
 
+First, we must filter the Penguin data to only include Adelie penguins and exclude NA values from the sex column.
+
 ```{r}
-#first, we must filter the Penguin data to only include Adelie penguins and exclude NA values from the sex column
 femalePenguins<- penguins |>
   filter(sex=="female")|>
   group_by(species) |>
   summarize(avgBodyMass = mean(body_mass_g, na.rm=TRUE), sdBodyMass = sd(body_mass_g, na.rm=TRUE))
-  
+```
+
+Now, we can call on the geom_bar( ) function to create our bar plot as follows:
+```{r}
 ggplot(data=femalePenguins, mapping = aes(x = species, y=avgBodyMass, fill=species))+
   geom_bar(stat="identity")+
   labs(title="Average Body Mass for Female Antarctic Penguin Species", x="Penguin species", y="Average body mass (g)")
@@ -76,14 +80,14 @@ The error bars extend from the top of the column plus and minus the standard dev
 
 *Note*: To create error bars, call on the geom_errorbar( ) function, with a nested mapping=aes( ), as shown
 
-```{r, eval: false}
+```{r, eval=FALSE}
 ggplot(data=femalePenguins, mapping = aes(x = species, y=avgBodyMass, fill = species))+
   geom_bar(stat="identity")+
   geom_errorbar(mapping=aes(ymin=avgBodyMass-sdBodyMass, ymax=avgBodyMass+sdBodyMass))+
   labs(title="Average Body Mass for Female Antarctic Penguin Species", x="Penguin species", y="Average body mass (g)")
 ```
 
-![](bodymass.png) 
+![](barPlot.png) 
 The error bars for the female Adelie and Chinstrap overlap, so they are likely not statistically different. However, the error bars for the Gentoo penguins have no overlap with the other Antarctic penguin species, so Gentoo penguins likely have a statistically signifcant difference in mass from other Antartic penguins in this dataset.
 
 ## Chick Data
@@ -93,7 +97,8 @@ Now, using the ChickWeight data set, generate a plot that shows the average weig
 First, let's create a new subset of data from the ChickWeight data for the average weights using group by the chick diet and summarize their average weights. We can also summarize the standard deviation for the error bars in this plot.
 
 ```{r}
-#| include: false
+#| include: false 
+
 avgChickWeight<-ChickWeight %>%
   group_by(Diet)%>%
   summarize(avgWeight=mean(weight), sdWeight=sd(weight))
@@ -107,6 +112,7 @@ avgChickWeight<-___ %>%
 ```
 
 Using the model code from above, plot a bar graph WITHOUT error bars.
+
 ::: panel-tabset
 ## Code editor
 

@@ -51,7 +51,7 @@ There are key features in all graphs, including:
 
 [A title]{.underline}: A good title should be the conclusion of your data analysis, or the relationship of your X and Y axes.
 
-[Axes]{.underline}: The X and Y axis should have their respective types of data. Each graph tutorial will guide you on what type of data goes on which axis.
+[Axes]{.underline}: The X and Y axis should have their respective types of data. Each graph tutorial will guide you on what type of data goes on which axis. Always include axes measurements!
 
 [Colors]{.underline}: Using colors can help guide your audience on what trend, if any, you want to emphasize. It is important to note that they should be used sparingly. While they may look pretty, having too many colors can be distracting of your data’s big picture.
 
@@ -70,6 +70,7 @@ The key to making a graph comprehensible is to make its story as clear as possib
 Identifying the types of data you have will help you identify the type of graph you’ll need. There are two types of data with two subcategories for each:
 
 Categorical: data arranged in groups
+
 > Nominal: No priority or ranking (e.g., yes or no, favorite colors)
 
 > Ordinal: Structure within groups (e.g., small, medium, large; cold, warm, hot)
@@ -146,7 +147,9 @@ Take a look at each data set. Do you notice any trends? What variables interest 
 In order to use ggplot, there here is a skeletal framework:
 
 ``` r
-ggplot(data=dataset, mapping=aes(x=xVariable, y=yVariable))+ geom_typeOfPlot()+ labs(title="Your title", x="Name of X variable", y="Your Y variable")
+ggplot(data=dataset, mapping=aes(x=xVariable, y=yVariable))+
+geom_typeOfPlot()+ 
+labs(title="Your title", x="Name of X variable", y="Your Y variable")
 ```
 
 Let's break down each part of this graph:
