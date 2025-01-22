@@ -73,7 +73,7 @@ You can change the boldness of the error bars by instead using the "size=__" arg
 ggplot(data=femalePenguins, mapping = aes(x = species, y=avgBodyMass, fill = species))+
   geom_bar(stat="identity")+
   geom_errorbar(mapping=aes(ymin=avgBodyMass-sdBodyMass, ymax=avgBodyMass+sdBodyMass), width = 0.5)+
-  labs(title="Average Body Mass for Female Antarctic Penguin Species", x="Penguin species", y="Average body mass (g)")+
+  labs(title="Average Body Mass for Female Antarctic Penguin Species", x="Penguin species", y="Average body mass (g)")
 ```
 
 
