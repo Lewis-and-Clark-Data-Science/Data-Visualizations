@@ -109,7 +109,7 @@ ___<-ChickWeight %>%
   filter(Chick == ___)
 ```
 
-Now let's create a scatter plot of chick 4's weight over time. Don't worry about adding a title or axes labels. Make sure to add a line of best fit!
+Now let's create a scatter plot of chick 4's weight over time. Don't worry about adding a title or axes labels. Make sure to add a line of regression!
 
 ::: panel-tabset
 ## Code editor

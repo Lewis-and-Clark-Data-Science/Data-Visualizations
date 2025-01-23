@@ -34,7 +34,7 @@
     "href": "tipsAndTricks.html",
     "title": "Tips and Tricks",
     "section": "",
-    "text": "Here are some tools that can improve your data visualizations\nColors can be used as a tool to emphasize an idea on a graph. To change the color of the points/lines on your graph, select the color you want using color=” “ in the function specifying the graph type. For example, to change the default black points in a scatter plot to blue,\nggplot(data=dataset, mapping=aes(x=xVariable, y=yVariable))+ \ngeom_point(color=\"blue\"))\nThere are many colors to choose from, but it is important to consider how your audience would perceive them. Are they bright and straining? Are they accessible to someone who has visual impairments?\nFill is an argument that is useful in generating a plot with multiple categorical variables at once. In the first plot example from the “Histogram” subsection, there appeared to be three peaks in the overall penguin data. Using the “fill=species” argument, as shown below, we can see the frequency of penguin weights based on species.\nBelow is the same code used from the tutorial, with the addition of the “fill=species” argument.\n\nggplot(data=penguins, mapping=aes(x=bill_depth_mm, na.rm=TRUE, fill=species))+\n  geom_histogram(bins=20)+\n  labs(title=\"Distribution of Antarctic Penguin Bill Depth\", x=\"Bill depth (mm)\", y=\"Frequency\")\n\n\n\n\n\n\n\n\nUsing the fill argument, it is easier to see how the frequency of weight varies with penguin species.\nFacet wrap is a function that can display multiple data visualizations at once. It is used to show graphs with the same axes with a change in a categorical variable. For example, we can compare the weights of all three Antarctic penguin species in one data visualization. It’s useful when trying to compare data, without creating a visually busy graph.\nTo do this, call on the facet_wrap( ) function and inside the parentheses, specify the categorical variable using a tilde (~).\n\nggplot(data=penguins, mapping=aes(x=bill_length_mm, y=body_mass_g))+ \n  geom_point()+ \n  facet_wrap(~species)+ \n  labs(title=\"Bill length by body mass for Antarctic Penguin Species\", x=\"Bill length (mm)\", y=\"Body mass (g)\")\n\n\n\n\n\n\n\n\nAs mentioned, error bars are a helpful tool to show if different categorical variables are distinct from one another. You can edit the size of its size and color by specifying these within the geom_errorbar( ) function. Below is the same code chunk from the Bar Plot tutorial, with smaller error bar widths.\n\nggplot(data=femalePenguins, mapping = aes(x = species, y=avgBodyMass, fill = species))+\n  geom_bar(stat=\"identity\")+\n  geom_errorbar(mapping=aes(ymin=avgBodyMass-sdBodyMass, ymax=avgBodyMass+sdBodyMass), width = 0.5)+\n  labs(title=\"Average Body Mass for Female Antarctic Penguin Species\", x=\"Penguin species\", y=\"Average body mass (g)\")\n\n\n\n\n\n\n\n\nYou can change the boldness of the error bars by instead using the “size=” argument, or changing the color using ”color=”. Try editing the chunk above to create your own plot!\n\nggplot(data=femalePenguins, mapping = aes(x = species, y=avgBodyMass, fill = species))+\n  geom_bar(stat=\"identity\")+\n  geom_errorbar(mapping=aes(ymin=avgBodyMass-sdBodyMass, ymax=avgBodyMass+sdBodyMass), width = 0.5)+\n  labs(title=\"Average Body Mass for Female Antarctic Penguin Species\", x=\"Penguin species\", y=\"Average body mass (g)\")",
+    "text": "Here are some tools that can improve your data visualizations",
     "crumbs": [
       "Tips and Tricks"
     ]
@@ -297,6 +297,46 @@
     "text": "3 Chick Data\nUsing the ChickWeight data, show the spread of the weight (variable: “weight”) of the chicks on different diets (variable: “Diet”).\n\nCode editorHintAnswer\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nMake sure you have the correct x and y-variables! The x-variable is a categorical variable, and the y-variable is a numerical variable.\n\n\n\nggplot(data=ChickWeight, mapping = aes(x=Diet, y=weight))+\n  geom_boxplot()\n\nThis chick data shows that there is not much of a difference in the spread of data across the four chick diets.",
     "crumbs": [
       "Box Plots"
+    ]
+  },
+  {
+    "objectID": "tipsAndTricks.html#colors",
+    "href": "tipsAndTricks.html#colors",
+    "title": "Tips and Tricks",
+    "section": "1 Colors",
+    "text": "1 Colors\nColors can be used as a tool to emphasize an idea on a graph. To change the color of the points/lines on your graph, select the color you want using color=” “ in the function specifying the graph type. For example, to change the default black points in a scatter plot to blue,\nggplot(data=dataset, mapping=aes(x=xVariable, y=yVariable))+ \ngeom_point(color=\"blue\"))\nThere are many colors to choose from, but it is important to consider how your audience would perceive them. Are they bright and straining? Are they accessible to someone who has visual impairments?",
+    "crumbs": [
+      "Tips and Tricks"
+    ]
+  },
+  {
+    "objectID": "tipsAndTricks.html#fill",
+    "href": "tipsAndTricks.html#fill",
+    "title": "Tips and Tricks",
+    "section": "2 Fill",
+    "text": "2 Fill\nFill is an argument that is useful in generating a plot with multiple categorical variables at once. In the first plot example from the “Histogram” subsection, there appeared to be three peaks in the overall penguin data. Using the “fill=species” argument, as shown below, we can see the frequency of penguin weights based on species.\nBelow is the same code used from the tutorial, with the addition of the “fill=species” argument.\n\nggplot(data=penguins, mapping=aes(x=bill_depth_mm, na.rm=TRUE, fill=species))+\n  geom_histogram(bins=20)+\n  labs(title=\"Distribution of Antarctic Penguin Bill Depth\", x=\"Bill depth (mm)\", y=\"Frequency\")\n\n\n\n\n\n\n\n\nUsing the fill argument, it is easier to see how the frequency of weight varies with penguin species.",
+    "crumbs": [
+      "Tips and Tricks"
+    ]
+  },
+  {
+    "objectID": "tipsAndTricks.html#facet-wrap",
+    "href": "tipsAndTricks.html#facet-wrap",
+    "title": "Tips and Tricks",
+    "section": "3 Facet wrap",
+    "text": "3 Facet wrap\nFacet wrap is a function that can display multiple data visualizations at once. It is used to show graphs with the same axes with a change in a categorical variable. For example, we can compare the weights of all three Antarctic penguin species in one data visualization. It’s useful when trying to compare data, without creating a visually busy graph.\nTo do this, call on the facet_wrap( ) function and inside the parentheses, specify the categorical variable using a tilde (~).\n\nggplot(data=penguins, mapping=aes(x=bill_length_mm, y=body_mass_g))+ \n  geom_point()+ \n  facet_wrap(~species)+ \n  labs(title=\"Bill length by body mass for Antarctic Penguin Species\", x=\"Bill length (mm)\", y=\"Body mass (g)\")",
+    "crumbs": [
+      "Tips and Tricks"
+    ]
+  },
+  {
+    "objectID": "tipsAndTricks.html#adjusting-error-bars",
+    "href": "tipsAndTricks.html#adjusting-error-bars",
+    "title": "Tips and Tricks",
+    "section": "4 Adjusting Error Bars",
+    "text": "4 Adjusting Error Bars\nAs mentioned, error bars are a helpful tool to show if different categorical variables are distinct from one another. You can edit the size of its size and color by specifying these within the geom_errorbar( ) function. Below is the same code chunk from the Bar Plot tutorial comaring the body mass of different Antarctic female penguins.\nAs a reminder, here is the subset of data we created, called “femalePenguins”.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nThis code chunk includes “width = 0.5” to make the error bars smaller.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nYou can change the boldness of the error bars by instead using the “size=” argument, or changing the color using ”color=”. Try editing the chunk above to create your own plot!",
+    "crumbs": [
+      "Tips and Tricks"
     ]
   }
 ]

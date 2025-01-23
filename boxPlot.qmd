@@ -14,14 +14,11 @@ library(tidyverse)
 #penguin data
 library(palmerpenguins)
 penguins<- palmerpenguins::penguins
+penguins<-na.omit(penguins)
 
 #Chick weight data
 data("ChickWeight")
 chickWeight<-ChickWeight
-
-#president data
-data("presidents")
-presidents<-presidents
 ```
 
 ```{r}
@@ -82,6 +79,8 @@ Now, compare the flipper lengths (variable: flipper_length_mm) of the different 
 ## Code editor
 
 ```{webr-r}
+#| warning: False
+
 ggplot(data=___, mapping = aes(x=___, y=___))+
   geom_boxplot()
 ```
