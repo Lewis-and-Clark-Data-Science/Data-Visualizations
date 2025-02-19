@@ -2056,7 +2056,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <section id="penguin-data" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="penguin-data"><span class="header-section-number">2</span> Penguin Data</h2>
 <p>In the penguin dataset, we can use a histogram to determine how often each bill depth (variable: bill_depth_mm) value appears in the dataset.</p>
-<p>Here, there is a deviation from the ggplot framework in the home page. “bins” is used to tell R how many bars to create in your histogram. You can change this number as needed. Ideally, you want to keep the bin number large enough to see patterns in your data , but small enough to keep outliers to a minimum.</p>
+<p>Here, there is a deviation from the ggplot framework in the home page. “bins” is used to tell R how many bars to create in your histogram. You can change this number as needed. Ideally, you want to keep the bin number large enough to see patterns in your data, but small enough to keep outliers to a minimum.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>penguins, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>bill_depth_mm, <span class="at">na.rm=</span><span class="cn">TRUE</span>))<span class="sc">+</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins=</span><span class="dv">20</span>)<span class="sc">+</span></span>
@@ -2117,7 +2117,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </div>
 </div>
 <p>How is the data distributed? Are there more chicks that fall into a weight interval to the <strong>left</strong> of the graph, to the <strong>right</strong> of the graph, or is it <strong>normally distributed</strong>?</p>
-<p>The histogram is <strong>left</strong> skewed, meaning throughout the data, most chicks’ weights fall between 0-100g.</p>
+<p>The histogram is right skewed, meaning throughout the data, most chicks’ weights fall between 0-100g.</p>
 
 
 </section>

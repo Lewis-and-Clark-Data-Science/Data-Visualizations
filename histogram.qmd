@@ -131,4 +131,4 @@ ggplot(data=ChickWeight, mapping=aes(x=weight, na.rm=TRUE))+
 
 How is the data distributed? Are there more chicks that fall into a weight interval to the **left** of the graph, to the **right** of the graph, or is it **normally distributed**?
 
-The histogram is left skewed, meaning throughout the data, most chicks' weights fall between 0-100g.
+The histogram is right skewed, meaning throughout the data, most chicks' weights fall between 0-100g.
